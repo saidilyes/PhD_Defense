@@ -1,0 +1,11 @@
+image: debian
+pages:
+ stage: deploy
+ script: 
+  - mkdir public 
+  - cp -r index.html images videos dist js plugin css public
+ artifacts: 
+  paths: 
+   - public 
+ tags:
+  - linux

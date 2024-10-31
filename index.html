@@ -1,0 +1,4113 @@
+<!doctype html>
+<html>
+<head>
+	<meta charset="utf-8">
+	<meta name="viewport" content="width=device-width, initial-scale=1.0, maximum-scale=1.0, user-scalable=no">
+
+	<title>Safe and Energy Efficient Decision/Control Architecture for a Formation of Multi-Vehicle System in Dynamic Environment</title>
+
+	<link rel="stylesheet" href="dist/reset.css">
+	<link rel="stylesheet" href="dist/reveal.css">
+	<link rel="stylesheet" href="dist/theme/white.css" id="theme">
+	<link rel="stylesheet" href="css/custom.css">
+    <link rel="stylesheet" href="css/footer_custom.css">
+
+
+	<!-- Theme used for syntax highlighted code -->
+	<link rel="stylesheet" href="plugin/highlight/monokai.css" id="highlight-theme">
+
+
+</head>
+
+
+
+<body style="background-color:#ffffff;">
+
+	<div style="background-color:#ffffff;" class="reveal">
+		<div  class="slides">
+            
+			        <section class="title"  data-background-video="videos/traffic_blur.mp4" data-background-color="#FFFF" data-auto-animate >
+                    <br>
+				
+                    <h4 class="white" style="font-size: 0.5in;"><span  class="white">Safe and Energy Efficient Decision/Control Architecture for a Formation of Multi-Vehicle System in Dynamic Environment </h4>
+				    <br>
+                    <p class="authors">
+					<medium><a href="https://www.hds.utc.fr/~saidilye/dokuwiki/fr/start">Lyes SAIDI</a></medium>
+				</p>
+				<p class="authors"><small>Supervised by</small><br> <a href="https://www.hds.utc.fr/~ladouane/dokuwiki/">Lounis ADOUANE</a>  &nbsp; &nbsp; &nbsp; &nbsp; &nbsp; &nbsp; &nbsp; &nbsp; &nbsp;<a href="https://www.hds.utc.fr/~taljrein/dokuwiki/">Reine TALJ</a></span>
+				</p>
+				<!-- <p>Press <code>space</code> <code>bar</code> to continue</p>-->
+                
+                <br>
+				<p style="font-size: 0.25in;">Wednesday, January 10<sup>th</sup>, 2024</p> 
+                <p style="font-size: 0.25in;">Heudiasyc - UMR CNRS 7253 - Université de Technologie de Compiègne </p>
+				<footer>
+                    <div class="row">
+                        <img data-src="images/Logo_Heudiasyc.png" height="70">   
+                        &nbsp; &nbsp; &nbsp; &nbsp; &nbsp; &nbsp;
+                        <img data-src="images/utc.png"  height="70">
+                        &nbsp; &nbsp; &nbsp; &nbsp; &nbsp; &nbsp;
+                        <img data-src="images/CNRS.png" height="70">
+                       </div>
+				</footer>
+                
+			        </section>
+
+
+            
+			 <!--slide 1-->
+			    <section  data-name="Introduction" data-auto-animate  >
+
+                
+                <section data-auto-animate >
+                    <h2  style="text-align: left;">Motivations</h2>
+                    
+                </section>
+
+ 
+
+                <section  style="text-align: left" data-auto-animate>
+                    <h3  style="text-align: left;"  class="shrink">Motivations</h2>
+                        <p   style="text-align: left; font-size: 2.25ch;" >From <span class="blue" >human driven vehicle</span> to <span class="blue">self driven vehicle</span></p>
+                        <p   style="text-align: left;"> <span style="font-size: 0.4in;"> According to the 2023 global status report on road safety<a href="https://www.who.int/publications/i/item/9789240086517"> <span style="font-size: 0.3in;">[World Health Organization]</span></a></span></p>
+
+
+                        <p><span  style="text-align: left" class="black">
+                            <span  style="text-align: left" class="fragment grow" data-fragment-index="0">
+                                <span style="text-align: left" class="fragment shrink" data-fragment-index="1">
+                                    1.19 million deaths in 2021
+                                </span >
+                                <br>
+                                
+                              
+                                
+
+                            </span>
+                        </span></p>
+                    
+                         <p>     
+                            <span  style="text-align: left" >
+                            <span  style="text-align: left">
+                               
+                                <span style="text-align: left" class="fragment grow " data-fragment-index="1">
+                                    <span class="fragment shrink" data-fragment-index="2">
+                                    12<sup>th</sup> cause of death for people of all ages in 2019  
+                                </span>
+                                </span >
+                            </span>
+                        </span></p>
+                   
+
+
+                        <p>     
+                            <span  style="text-align: left" >
+                            <span  style="text-align: left">
+                               
+                                <span style="text-align: left" class="fragment grow " data-fragment-index="2">
+                                    <span class="fragment shrink" data-fragment-index="3">
+                                        1<sup>st</sup> cause of death for 5-29 years of age in 2019 
+                                </span>
+                                </span >
+                            </span>
+                        </span></p>
+                    
+
+                        <p  class="fragment" data-fragment-index="3" style="text-align: center;"> <span class="blue" style="font-size: 5ch;"> Automated driving task </span></p>
+
+
+
+                        <!-- The footer-->
+                        <div class="footer">
+                            <p>
+                            Safe and Energy Efficient Decision/Control Architecture for a Formation of Multi-Vehicle System in Dynamic Environment
+                            <br>
+                            Compiègne, 10-01-2024
+                            </p>
+                        </div>
+    
+                        <div class="footer_images">
+                           <div class="row">
+                            <img data-src="images/Logo_Heudiasyc.png" height="30">   
+                            <img data-src="images/utc.png"  height="30">
+                            <img data-src="images/CNRS.png" height="30">
+                           </div>
+                        </div>
+    
+
+
+
+                
+                </section>
+
+
+   
+
+
+                <section data-auto-animate style="text-align: left;">
+                    <h4  style="text-align: left;" class="shrink">Motivations</h4>
+                    <div class="r-stack">
+                        <p   style="text-align: left; font-size: 2.0ch;"  style="margin : -10px" class="fragment fade-out" data-fragment-index="0"> <span class="fragment fade-out" data-fragment-index="1"><span class="black" >Improved mobility: Automated driving task</span></span> </p>
+                        <p   style="text-align: left; font-size: 2.0ch;"  style="margin : -10px" class="fragment fade-in" data-fragment-index="0"> <span class="black" >From individual automated vehicle to multi-vehicle system</span> </p>
+
+                    </div>
+                    
+                    <p   style="text-align: center;"> <span class="red" style="font-size: 2.5ch;" style="margin : -10px; padding-top:0;"> Motion cooperation ability </span></p>
+                  
+                    <!-- When i use youtube to do it-->
+                    <!--
+                    <div class="col r-stack">
+                    <div class="fragment fade-in-then-out">
+                    <iframe data-autoplay width="660" height="315" src="http://www.youtube.com/embed/Ka6-uyxWEe4?autoplay=1&loop=1&playlist=Ka6-uyxWEe4&control=0" frameborder="0" allowfullscreen></iframe>​
+
+                    </div>
+                    <div class="fragment">
+                    <iframe data-autoplay width="660" height="315" src="http://www.youtube.com/embed/7qAiqkO0ZpE ?autoplay=1&loop=1&playlist=7qAiqkO0ZpE &control=0" frameborder="0" allowfullscreen></iframe>​
+                    </div>
+                    </div> 
+                    -->
+               
+
+
+                    
+                <div class="col r-stack">
+                    <div >
+                       <video muted data-autoplay src="videos/Intro_01.mp4"  width="1200" height="400" data-video-loop></video>
+                        <figcaption> <p style="text-align: center;"> <span style="font-size: 0.2in;" class="fragment fade-out" data-fragment-index="0"> Perfect synchronization  crossing (video courtesy of <a href="https://www.youtube.com/watch?v=4SmJP8TdWTU"> Black Sheep Production </a>)</span></p></figcaption>
+                    
+                    </div>
+
+
+                    <div class="fragment fade-in" data-fragment-index="0">
+                        <video muted data-autoplay src="videos/Intro_02.mp4"  width="1200" height="400" data-video-loop></video>
+                        <figcaption> <p style="text-align: center;"> <span style="font-size: 0.2in;"> Cruise robotaxi stuck in intersection - San Francisco - 12/08/2023 (video courtesy of <a href="https://www.youtube.com/watch?v=4SmJP8TdWTU"> KTVU FOX 2 San Francisco</a>)</span></p></figcaption> 
+                   
+                    </div>
+                </div>
+
+
+
+                   <!-- The footer-->
+                   <div class="footer">
+                    <p>
+                    Safe and Energy Efficient Decision/Control Architecture for a Formation of Multi-Vehicle System in Dynamic Environment
+                    <br>
+                    Compiègne, 10-01-2024
+                    </p>
+                </div>
+
+                <div class="footer_images">
+                   <div class="row">
+                    <img data-src="images/Logo_Heudiasyc.png" height="30">   
+                    <img data-src="images/utc.png"  height="30">
+                    <img data-src="images/CNRS.png" height="30">
+                   </div>
+                </div>
+                
+                
+                </section>
+
+               
+            </section>
+
+
+
+
+               
+               
+
+
+
+            <!--Slide 3: context-->          
+            <section data-name="Context" data-auto-animate>
+                
+                <section data-auto-animate style="text-align: left;">
+                    <h2  style="text-align: left;">Context</h2>
+                    
+                </section>
+                
+                <section data-auto-animate style="text-align: left;">
+                        <h3 style="text-align: left;">Context</h3>
+                        
+                        <div class="r-stack">
+                        <div>
+                        <p style="text-align: left;" class="fragment fade-out" data-fragment-index="1"> <em> <strong><span class="fragment semi-fade-out" data-fragment-index="0">Multi-Vehicle System (MVS)</span></strong></em></p>
+                        <p style="text-align: left;" class="fragment fade-out" data-fragment-index="1"> <span class="fragment semi-fade-out" data-fragment-index="0">is a group of autonomous vehicles that are equipped  with communication  and <span class="blue">cooperation ability</span></span>.
+                       
+                        </p>
+                   
+                        <br>
+
+                        <p style="text-align: left;" class="fragment fade-in-then-out" data-fragment-index="0"> <em> <strong><span class="blue">Cooperation ability</span></strong></em></p>
+                        <p style="text-align: left;" class="fragment fade-in-then-out" data-fragment-index="0">it is referred to the  <span class="blue">decision-making</span> and <span class="blue">planning</span> aimed at orchestrating vehicles' actions to achieve an overarching / individual goal.</p>
+                        </div>
+
+                        <div class="fragment" data-fragment-index="1" style="text-align: left;">
+                           <p style="text-align: left;"> MVS advantages: </p>
+                            <ul style="font-size: 0.4in;">
+                                <Li>Improved on-road safety: <br> 
+                                    &nbsp; &nbsp; &nbsp; &nbsp; &nbsp; Advanced risk assessement and management,
+                                </Li>
+                                <li>Enhanced traffic throughput: <br>
+                                    &nbsp; &nbsp; &nbsp; &nbsp; &nbsp; Micro and macro traffic management,</li>
+                                <li>Energy efficient navigation: <br>
+                                    &nbsp; &nbsp; &nbsp; &nbsp; &nbsp; Maneuver forcasting and intelligent planning.</li>
+                            </ul>
+
+                        </div>
+
+
+                      </div>
+
+
+
+
+                    <!-- The footer-->
+                    <div class="footer">
+                    <p>
+                    Safe and Energy Efficient Decision/Control Architecture for a Formation of Multi-Vehicle System in Dynamic Environment
+                    <br>
+                    Compiègne, 10-01-2024
+                    </p>
+                    </div>
+
+                    <div class="footer_images">
+                    <div class="row">
+                    <img data-src="images/Logo_Heudiasyc.png" height="30">   
+                    <img data-src="images/utc.png"  height="30">
+                    <img data-src="images/CNRS.png" height="30">
+                    </div>
+                    </div>
+
+                    </section>
+
+                    
+                    
+                        <section data-auto-animate>
+                            <h3 style="text-align: left;">Context</h3>
+                            <p>Examples of MVS projects/challenges around the world</p>
+                         <div class="main">
+                            <figure> 
+                                <img src="images/MVS_projects/Path_project.png"  width="400" height="250" alt="Path_project" >
+                                <figcaption><span style="font-size:0.9ch"> PATH project - US - from 1986 </span></figcaption>
+                            </figure>
+
+                            <figure> 
+                                <img src="images/MVS_projects/Scania_platooning.jpg"  width="400" height="250" alt="scania" >
+                                <figcaption><span style="font-size:0.9ch"> Scania platooning - Sweden - from 2001 </span></figcaption>
+                            </figure> 
+
+                            <figure>
+                                <img src="images/MVS_projects/GCDC2011.png" width="400" height="250" alt="GCDC2016" />
+                                <figcaption><span style="font-size:0.85ch"> Grand Cooperative Driving Challenge - Netherlands - 2011 and 2016 </span></figcaption>
+                            </figure>
+                        </div>
+
+                        <!-- The footer-->
+                        <div class="footer" style="text-align: left;">
+                        <p>
+                        Safe and Energy Efficient Decision/Control Architecture for a Formation of Multi-Vehicle System in Dynamic Environment
+                        <br>
+                        Compiègne, 10-01-2024
+                        </p>
+                        </div>
+    
+                        <div class="footer_images">
+                        <div class="row">
+                        <img data-src="images/Logo_Heudiasyc.png" height="30">   
+                        <img data-src="images/utc.png"  height="30">
+                        <img data-src="images/CNRS.png" height="30">
+                        </div>
+                        </div>
+                        </section>
+
+
+                        <section data-auto-animate data-background-color="rgb(255, 255, 255)">
+                            <h3 style="text-align: left;"> Context</h3>
+
+                            <div class="col r-stack">
+
+
+                            
+                                <img class="fragment fade-out" data-fragment-index="1" src="images/Context_scenario.PNG"  width="1000" height="550" >
+                                <!-- <figcaption><span class="fragment fade-in-then-out" data-fragment-index="1" style="font-size:1ch"> <p>On-ramp merging on highway</p>
+                                </span></figcaption>-->
+
+
+                                    <img class="fragment fade-in" data-fragment-index="1" src="images/Context_scenario_communication_2.PNG"  width="1000" height="550"  >
+                                    <!--<figcaption><span class="fragment fade-in-then-out" data-fragment-index="2" style="font-size:1ch"> <p>On-ramp merging on highway: communication with the help of the RSU</p>
+                                    </span></figcaption>-->
+                           
+                        </div>
+
+                                                   <!-- The footer-->
+                                                    <div class="footer" style="text-align: left;">
+                                                    <p>
+                                                    Safe and Energy Efficient Decision/Control Architecture for a Formation of Multi-Vehicle System in Dynamic Environment
+                                                    <br>
+                                                    Compiègne, 10-01-2024
+                                                    </p>
+                                                    </div>
+                                
+                                                    <div class="footer_images">
+                                                    <div class="row">
+                                                    <img data-src="images/Logo_Heudiasyc.png" height="30">   
+                                                    <img data-src="images/utc.png"  height="30">
+                                                    <img data-src="images/CNRS.png" height="30">
+                                                    </div>
+                                                    </div>
+                        </section>
+
+                      
+                     
+                        
+
+
+
+
+                    </section> 
+                    
+                    
+
+                    
+            <!--slide 2: agenda -->
+            <section  style="text-align: left;">
+                <br>
+                <br>
+                           <h3>Table of contents</h2>      
+                           <br>     
+                           <ul>
+                            <li>
+                                Concept and objectives
+                            </li>
+                            <li>
+                                Cooperative Multi-Controller Architecture (C-MCA)
+                            </li>
+                            <li>
+                                Dynamic formation reconfiguration
+                            </li>
+                            <li>
+                                Multi-behavior decision-making strategy
+                            </li>
+                            <li>
+                                Conclusion and perspectives
+                            </li>
+                           </ul>   
+                           
+                           
+
+
+                            <!-- The footer-->
+                            <div class="footer" style="text-align: left;">
+                            <p>
+                            Safe and Energy Efficient Decision/Control Architecture for a Formation of Multi-Vehicle System in Dynamic Environment
+                            <br>
+                            Compiègne, 10-01-2024
+                            </p>
+                            </div>
+        
+                            <div class="footer_images">
+                            <div class="row">
+                            <img data-src="images/Logo_Heudiasyc.png" height="30">   
+                            <img data-src="images/utc.png"  height="30">
+                            <img data-src="images/CNRS.png" height="30">
+                            </div>
+                            </div>
+                                  
+                            </section>
+                
+                    
+                </section>
+
+    
+
+                    <section data-name="Concept"> 
+                        <section data-auto-animate>
+                        <h2  style="text-align: left;">Concept and objectives</h2>
+                        </section>
+                       
+
+
+
+           
+
+<section data-auto-animate>
+    
+    <p style="font-size: medium;">
+    <h4  style="text-align: left;" class="fragment semi-fade-out" data-fragment-index="1"> State of the art of cooperative on-ramp merging on highway</h4>
+
+
+
+<span  style="text-align: left" class="fagment fade-in" data-fragment-index="1">
+    <span  style="text-align: left" class="fragment grow" data-fragment-index="1">
+        <span style="text-align: left" class="fragment shrink" data-fragment-index="3" >
+           Centralized approaches
+        </span >
+        
+      
+        
+
+    </span>
+</span>
+
+&nbsp; &nbsp; &nbsp; &nbsp; &nbsp; &nbsp;
+    <span  style="text-align: left" >
+
+        <span style="text-align: left" class="fragment grow" data-fragment-index="3">
+           Decentralized approaches 
+        </span>
+        </span>
+</p>
+
+
+
+<!-- images -->
+<div class="col r-stack">
+<div class="fragment fade-in-then-out" data-fragment-index="1">
+
+
+    <div class="parent">
+        <span style="font-size: 0.35in; text-align: left;">Centralized approaches based on reservation scheme </span><span style="font-size: 0.2in;">[JING et al., 2019]</span>
+
+        <div class="content">
+            <figure> 
+                <img src="images/state_of_the_art/reservation_scheme_edit.PNG.png"  width="900" height="300" alt="Path_project" >
+                <figcaption><span style="font-size:1ch"> <p>Centralized reservation-based scheme strategy for on-ramp merging on highway</p>
+                </span></figcaption>
+<br>
+              
+            </figure>
+
+            
+        </div>
+        <div class="left-menu">
+            <br>
+
+            <ul style="font-size: 0.3in;">
+                ✔️ Extensively used <br>
+                ✔️ Simple implementation
+                <br> <br>
+                ❌ Limited flexibility <br>
+                ❌ Fault non-tolerant <br>
+                ❌ Communication bottlenecks
+
+            </ul>       
+            </div>
+
+    </div>
+       
+                <!--
+                <p style="text-align: left;"> Heuristic-based approaches: <span style="font-size: 1.5ch;"> <a href="https://ieeexplore.ieee.org/document/4047597"> [Schmidt et al.] </a> <a href="https://www.sciencedirect.com/science/article/pii/S0968090X99000285"> [Ran et al.] </a></span></p>
+                <p style="text-align: left;"> Optimization-based approaches: <span style="font-size: 1.5ch;"> <a href="https://ieeexplore.ieee.org/document/6728437"> [Awal et al.] </a> <a href="https://ieeexplore.ieee.org/document/660479"> [Kachroo et al.] </a></span></p>
+                -->
+                <p>   <p style="font-size: 0.8ch; text-align: left;"><a href="https://ieeexplore.ieee.org/stamp/stamp.jsp?arnumber=8765399">
+                    <span >[JING et al., 2019]</span>  </a>JING, Shoucai, HUI, Fei, ZHAO, Xiangmo, et al. Cooperative game approach to optimal merging sequence and on-ramp merging control <br>of connected and automated vehicles. IEEE Transactions on Intelligent Transportation Systems, 2019, vol. 20, no 11, p. 4234-4244.</p>
+                </p>
+
+</div>
+
+
+<div class="fragment" data-fragment-index="3">
+    <div class="parent">
+
+        <div class="content">
+   <span style="font-size: 0.35in;"> Decentralized approaches based on virtual mapping</span> <span style="font-size: 0.2in;">[Min et al., 2021]</span>
+                                        <figure> 
+                                            <img src="images/state_of_the_art/Virtual_mapping_edit.PNG.png"  width="900" height="300" alt="Path_project" >
+                                            <figcaption><span style="font-size:1ch"> <p>Decentralized strategy for on-ramp merging on highway based on the virtual mapping approach</p>
+                                            </span></figcaption>
+                                        </figure>
+
+                                        <br>
+                
+                                        <!--
+                                        <p style="text-align: left;"> Virtual mapping: <span style="font-size: 1.5ch;"> <a href="https://www.sciencedirect.com/science/article/pii/S2095756421000696"> [Min et al.] </a> <a href="https://iopscience.iop.org/article/10.1088/1742-6596/2234/1/012011"> [Tianchuang et al.] </a></span></p>
+                                        -->
+                                    </div>
+                                    <div class="left-menu">
+                                        <br>
+                            
+                                        <ul style="font-size: 0.3in;">
+                                            ✔️ High flexibility  <br>
+                                            <span style="font-size: 0.28in;">✔️ Suitable for coordination scenarios </span>
+                                            <br> <br>
+                                            <span style="font-size: 0.28in;">❌ Challenging implementation </span><br>
+                                            
+                            
+                                        </ul>       
+                                        </div>
+                                </div>
+                                <p>   <p style="font-size: 0.8ch; text-align: left;"><a href="https://ieeexplore.ieee.org/stamp/stamp.jsp?arnumber=8765399">
+                                    <span >[Min et al., 2021]</span>  </a>MIN, Haigen, FANG, Yukun, WU, Xia, et al. On-ramp merging strategy for connected and automated vehicles based on complete information static game. Journal of Traffic and Transportation Engineering (English Edition), 2021, vol. 8, no 4, p. 582-595.</p>
+                                </p>                             
+</div>
+
+</div>
+
+
+                        <!-- The footer-->
+                        <div class="footer" style="text-align: left;">
+                            <p>
+                            Safe and Energy Efficient Decision/Control Architecture for a Formation of Multi-Vehicle System in Dynamic Environment
+                            <br>
+                            Compiègne, 10-01-2024
+                            </p>
+                            </div>
+        
+                            <div class="footer_images">
+                            <div class="row">
+                            <img data-src="images/Logo_Heudiasyc.png" height="30">   
+                            <img data-src="images/utc.png"  height="30">
+                            <img data-src="images/CNRS.png" height="30">
+                            </div>
+                            </div>
+
+
+</section>
+
+
+
+
+                 
+                                  
+                                
+                                    
+
+
+                           
+
+                              
+
+
+                        
+                                    
+                                    
+                             
+                       
+
+                        
+                        <section  data-auto-animate >
+                            <h4  style="text-align: left;">Concept</h4>
+
+                            <p> <span class="blue">Navigation in formation </span> for on-ramp merging on highway</p>
+                            <div class="r-stack">
+                                <p class="fragment fade-out" data-fragment-index="0" style="font-size: 0.25in;"><em><span class="red" style="font-size: 0.3in;">Before the merging:</span></em> Initial formation </p>
+                                <p class="fragment fade-in-then-out" data-fragment-index="0" style="font-size: 0.25in;"><span class="grey">Before the merging: Initial formation</span></em>  → <em><span class="red" style="font-size: 0.3in;">During the merging:</span></em> Intermediary formation</p>
+                                <p class="fragment fade-in-then-semi-out" data-fragment-index="1" style="font-size: 0.25in;"><span class="grey">Before the merging: Initial formation → During the merging: Intermediary formation </span>→ <em><span class="red" style="font-size: 0.3in;">After the merging: </span></em> Desired formation</p>
+
+                            </div>
+                            <img src="images/GlobalScenarioTopology.svg" width="1450" height="450" alt="global_scenario">
+                            <br>
+                            <figcaption><span style="font-size:1ch"> <p>Formation-based conceptual idea to tackle safe and on-ramp merging on highway</p></figcaption>
+
+                            <p style="font-size: 0.25in;" class="red"> ➡️ Guarantee of the formation safety  &nbsp; &nbsp; &nbsp; &nbsp; &nbsp; &nbsp; ➡️ Smooth and energy efficient formation navigation</p>
+
+                            <!-- The footer-->
+                            <div class="footer" style="text-align: left;">
+                            <p>
+                            Safe and Energy Efficient Decision/Control Architecture for a Formation of Multi-Vehicle System in Dynamic Environment
+                            <br>
+                            Compiègne, 10-01-2024
+                            </p>
+                            </div>
+        
+                            <div class="footer_images">
+                            <div class="row">
+                            <img data-src="images/Logo_Heudiasyc.png" height="30">   
+                            <img data-src="images/utc.png"  height="30">
+                            <img data-src="images/CNRS.png" height="30">
+                            </div>
+                            </div>
+                        </section>
+
+
+
+
+
+<section data-auto-animate>
+    <br>
+<h4 style="text-align: left; font-size: 1.6ch;" class="black">State of the art on formation modeling approaches</h4>
+
+    
+
+
+    <p style="font-size: 1.2ch;" class="black">
+    <span  style="text-align: left" class="black">
+        <span  style="text-align: left" class="fragment grow" data-fragment-index="1">
+            <span style="text-align: left" class="fragment shrink" data-fragment-index="2" >
+               Leader-follower &nbsp; &nbsp; &nbsp; &nbsp; &nbsp; &nbsp; Virtual structure
+            </span > 
+            
+          
+            
+    
+        </span>
+    </span>
+
+
+       
+
+
+        &nbsp; &nbsp; &nbsp; &nbsp; &nbsp; &nbsp;
+
+        <span  style="text-align: left" >
+            <span  style="text-align: left">
+               
+                <span style="text-align: left" class="fragment grow " data-fragment-index="2">
+                    <span class="fragment shrink" data-fragment-index="3">
+                   Behavior-based  &nbsp; &nbsp; &nbsp; &nbsp; &nbsp; &nbsp; Consensus-based control
+                </span >
+            </span>
+
+          
+
+ 
+
+
+</p>
+
+
+
+<!-- images -->
+<div class="col r-stack">
+
+
+
+<div class="fragment fade-in-then-out" data-fragment-index="1">
+    
+
+<div class="row">
+    <div class="column">
+
+
+        <div class="row">
+            <div class="column_costum_size">
+                <ul style="font-size: 0.2in;">
+                   
+                        
+                    <li>Virtual leader</li>
+                    <li style="font-size: 0.2in;">$UGV_{k,i,j}$: formation</li>
+                    <li>$l_{k,i,j}$ formation virtual shape</li>
+              
+        
+                </ul>
+            </div>
+
+            <div class="column_costum">
+                <figure> 
+                    <img src="images/state_of_the_art/Virtual_Structure_Corrected.PNG"  width="700" height="400" alt="Pat" >
+                    <figcaption><span style="font-size:1ch"> <p>Virtual structure  <a href="https://theses.hal.science/tel-01330754/">[Vilca, 2015] </a> </p>
+                    </span></figcaption>
+                    
+                </figure>
+            </div>
+
+            
+        </div>
+        
+        
+    </div>
+
+    <div class="column">
+        <div class="row">
+            <div class="column_costum_size">
+                <ul style="font-size: 0.2in; text-align: left;">
+                    <li>$UGV_L \;$Leader vehicle</li>
+                    <li>$UGV_{i,j} \;$Follower vehicles</li>
+                    <li>Mobile reference frame on $UGV_L \;$</li>
+                </ul>
+            </div>
+            <div class="column_costum">
+                <figure> 
+                    <img src="images/state_of_the_art/Leader_follower.PNG"  width="400" height="400" alt="Path_project" >
+                    <figcaption><span style="font-size:1ch"> <p>Leader-follower  <a href="https://theses.hal.science/tel-01330754/">[Vilca, 2015] </a>  </p>
+                    </span></figcaption>
+                    </figure> 
+                      
+            </div>
+            
+        </div>
+        
+
+    </div>
+
+    
+
+</div>
+<p style="font-size: 1ch; text-align: left;"><a href="https://ieeexplore.ieee.org/document/8430659">
+    <span >[Vilca, 2015]</span>  </a>Vilca Ventura, José Miguel. Safe and flexible hybrid control architecture for the navigation in formation of a group of vehicles. 2015. Ph.D. Thesis. Université Blaise Pascal-Clermont-Ferrand II.</p>
+</p>
+
+
+        <!--<div class="parent2">
+            <div class="content2">
+                        <figure> 
+                        <img src="images/state_of_the_art/Leader_follower.PNG"  width="600" height="400" alt="Path_project" >
+                        <figcaption><span style="font-size:1ch"> <p>Formation modeling strategy: leader-follower (image courtesy of  <a href="https://theses.hal.science/tel-01330754/">[Vilca, 2015] </a> ) </p>
+                        </span></figcaption>
+                        </figure>   
+                    </div>
+                    <div class="left-menu2">
+                        <br>
+                        <br>
+                        <ul style="font-size: 0.3in;">
+                            <ul>
+                                
+                            <li>$UGV_L \;$Leader vehicle</li>
+                            <li>$UGV_{i,j} \;$Follower vehicles</li>
+                            <li>Mobile reference frame on $UGV_L \;$</li>
+                        </ul></ul>
+
+                        
+                    </div>
+                </div> 
+                        
+                        <p>   <p style="font-size: 1ch; text-align: left;"><a href="https://ieeexplore.ieee.org/document/8430659">
+                            <span >[Vilca, 2015]</span>  </a>Vilca Ventura, José Miguel. Safe and flexible hybrid control architecture for the navigation in formation of a group of vehicles. 2015. Ph.D. Thesis. Université Blaise Pascal-Clermont-Ferrand II.</p>
+                        </p>
+    
+    
+    </div>--> 
+    
+</div>
+
+    <div class=" fragment fade-in" data-fragment-index="2"> 
+        <div class="row">
+            <div class="column">
+        
+        
+                
+                        <figure> 
+                            <img src="images/state_of_the_art/Consensus_control.png"  width="500" height="300" alt="Path_project" >
+                            <figcaption><span style="font-size:1ch"> <p>Consensus control <a href="https://ieeexplore.ieee.org/document/8430659">
+                                <span >[Ren, 2006]</span>  </a></p>
+
+                                
+                            </span>
+                        </figcaption>
+
+                            
+                        </figure>
+                            
+                        <ul style="font-size: 0.25in;">  
+                            <li>Multi-agent systems: Vehicle → node</li>
+                            <li>Communication topology</li>
+                            <li>Algebric graph theory</li>
+                    </ul>
+             
+                
+                
+            </div>
+        
+            <div class="column">
+           
+                        <figure> 
+                            <img src="images/state_of_the_art/behavior_based.PNG"  width="800" height="300" alt="Path_project" >
+                            <figcaption><span style="font-size:1ch"> <p>Behavior-based  <a href="https://theses.hal.science/tel-01330754/">[Vilca, 2015] </a> </p>
+                            </span></figcaption>
+                            <p>   
+                        </figure>
+
+                        <ul style="font-size: 0.25in; text-align: left;">
+
+                
+                            <li>Conceptual behavior decomposition</li>
+                            <li>Multi-agent systems</li></ul>
+                
+                        </ul>
+                              
+               
+                
+        
+            </div>
+        
+            
+        
+        </div>
+        <p>   <p style="font-size: 0.9ch; text-align: left;"><a href="https://ieeexplore.ieee.org/document/8430659">
+            <span >[Ren, 2006]</span>  </a>Ren, Wei. Consensus based formation control strategies for multi-vehicle systems. In : 2006 American Control Conference. IEEE, 2006. p. 6 pp.</p>
+        </p>
+
+    </div>
+    
+
+      <!--
+    <div class="fragment fade-in-then-out" data-fragment-index="3">
+        <div class="parent2">
+            <div class="content2">
+                                            <figure> 
+                                                <img src="images/state_of_the_art/Consensus_control.png"  width="500" height="300" alt="Path_project" >
+                                                <figcaption><span style="font-size:1ch"> <p>Formation modeling strategy: consensus control [Ren, 2006]</p>
+                                                </span></figcaption>
+                                                
+                                            </figure>
+                                        </div>
+                                        <div class="left-menu2">
+                                            <br>
+                                            <br>
+                                            <ul style="font-size: 0.3in;">
+                                                <ul>
+                                               
+                                                    
+                                                <li>Multi-agent systems: Vehicle → node</li>
+                                                <li>Communication topology</li>
+                                                <li>Algebric graph theory</li>
+                                                
+                    
+                                            </ul></ul>
+                                        </div>
+                                        
+                                    </div> 
+                                    <br>
+                                    <br><br>
+                                    <p>   <p style="font-size: 1ch; text-align: left;"><a href="https://ieeexplore.ieee.org/document/8430659">
+                                        <span >[Ren, 2006]</span>  </a>Ren, Wei. Consensus based formation control strategies for multi-vehicle systems. In : 2006 American Control Conference. IEEE, 2006. p. 6 pp.</p>
+                                    </p>
+    
+                                          
+    </div>
+-->
+
+
+    
+    <!--
+    <div class="fragment fade-in-then-out" data-fragment-index="4">
+        <div class="parent2">
+            <div class="content2">
+        <figure> 
+            <img src="images/state_of_the_art/behavior_based.PNG"  width="800" height="300" alt="Path_project" >
+            <figcaption><span style="font-size:1ch"> <p>Formation modeling strategy: behavior-based (image courtesy of  <a href="https://theses.hal.science/tel-01330754/">[Vilca, 2015] </a> )</p>
+            </span></figcaption>
+            <p>   
+        </figure>
+    </div>
+    <div class="left-menu2">
+        <br>
+        <br>
+        <ul style="font-size: 0.3in;">
+            <ul>
+                
+            <li>Conceptual behavior decomposition</li>
+            <li>Multi-agent systems</li></ul>
+
+        </ul>
+    </div>
+    
+</div> 
+
+<p style="font-size: 1ch; text-align: left;"><a href="https://ieeexplore.ieee.org/document/8430659">
+    <span >[Vilca, 2015]</span>  </a>Vilca Ventura, José Miguel. Safe and flexible hybrid control architecture for the navigation in formation of a group of vehicles. 2015. Ph.D. Thesis. Université Blaise Pascal-Clermont-Ferrand II.</p>
+</p>
+    </div>-->
+
+
+<!--
+    
+    <div class="fragment fade-in-then-out" data-fragment-index="5">
+        <div class="parent2">
+            <div class="content2">
+        <figure> 
+            <img src="images/state_of_the_art/Virtual_Structure_Corrected.PNG"  width="700" height="450" alt="Pat" >
+            <figcaption><span style="font-size:1ch"> <p>Formation modeling strategy: virtual structure (image courtesy of  <a href="https://theses.hal.science/tel-01330754/">[Vilca, 2015] </a> )</p>
+            </span></figcaption>
+            
+        </figure>
+    </div>
+    <div class="left-menu2">
+        <br>
+        <br>
+        <ul style="font-size: 0.3in;">
+            <ul>
+                
+            <li>Virtual leader</li>
+            <li style="font-size: 0.3in;">$UGV_{k,i,j}$: formation</li>
+            <li>$l_{k,i,j}$ to maintain the formation virtual shape</li>
+        </ul>
+
+        </ul>
+    </div>
+</div> 
+   <p style="font-size: 1ch; text-align: left;"><a href="https://ieeexplore.ieee.org/document/8430659">
+    <span >[Vilca, 2015]</span>  </a>Vilca Ventura, José Miguel. Safe and flexible hybrid control architecture for the navigation in formation of a group of vehicles. 2015. 2015. Ph.D. Thesis. Université Blaise Pascal-Clermont-Ferrand II.</p>
+</p>
+</div> 
+-->
+
+
+
+</div>
+
+
+     <!-- The footer-->
+     <div class="footer" style="text-align: left;">
+        <p>
+        Safe and Energy Efficient Decision/Control Architecture for a Formation of Multi-Vehicle System in Dynamic Environment
+        <br>
+        Compiègne, 10-01-2024
+        </p>
+        </div>
+
+        <div class="footer_images">
+        <div class="row">
+        <img data-src="images/Logo_Heudiasyc.png" height="30">   
+        <img data-src="images/utc.png"  height="30">
+        <img data-src="images/CNRS.png" height="30">
+        </div>
+        </div>
+    
+
+</section>
+
+
+
+
+
+
+                        
+                         <!--
+                        <section >
+                            <h4  style="text-align: left;">Leader-follower Vs. Virtual structure </h4>
+                            <p style="text-align: left;" class="blue"> The Leader-follower approach: </p>
+                            <p style="text-align: left;">✔️  <span style="font-size: 1.8ch;">Extensively employed in the litterature </span>  </p>
+                            <p style="text-align: left;">❌  <span style="font-size: 1.8ch;">The dependency on the leader and lack of flexibility </span>  </p>
+
+                            <p style="text-align: left;" class="blue"> The virtual structure approach: </p>
+                            <p style="text-align: left;">✔️  <span style="font-size: 1.8ch;">The approach flexibility </span>  </p>
+                            <p style="text-align: left;">❌  <span style="font-size: 1.8ch;">Usually used for open environments  </span>  </p>
+                            <p style="text-align: left;">❌  <span style="font-size: 1.8ch;">The main reference needs to be given by a centralized entity  </span>  </p>
+
+
+
+
+
+                            The footer
+                             <div class="footer" style="text-align: left;">
+        <p>
+        Safe and Energy Efficient Decision/Control Architecture for a Formation of Multi-Vehicle System in Dynamic Environment
+        <br>
+        Compiègne, 10-01-2024
+        </p>
+                             </div>
+
+        <div class="footer_images">
+        <div class="row">
+        <img data-src="images/Logo_Heudiasyc.png" height="30">   
+        <img data-src="images/utc.png"  height="30">
+        <img data-src="images/CNRS.png" height="30">
+        </div>
+        </div>
+    
+                        </section> -->
+
+
+
+                        <section data-auto-animate data-background-color="rgb(255, 255, 255)">
+                            <br>
+                            <h4  style="text-align: left;">Formation modeling</h4>
+                            <div class="col r-stack">
+                                <div class="fragment fade-in-then-out" data-fragment-index="0">
+                                    <img src="images/Concept/VS/VS_01.svg" width="1450" height="450" alt="global_scenario" data-auto-animate>
+                                    <figcaption><span style="font-size:1ch"> <p>Illustration of the Formation modeling: reference frame </p></figcaption>
+                                        <p style="text-align: center; font-size: 0.25in;">
+                                            $\text{Formation}$
+                                                $\begin{cases} 
+                                                V_R   \;  \text{ The reference vehicle}  \\
+                                                V_{i} \; \text{and} V_{j} \; \text{highway and merging vehicles, respetively} \\
+                                                [X_R, Y_R] \;\text{mobile reference frame }
+                                                \end{cases}$
+                                           </p>
+                                    </div>
+                                <div class="fragment fade-in-then-out" data-fragment-index="1">
+                                    <img src="images/Concept/VS/VS_02.svg" width="1450" height="450" alt="global_scenario" data-auto-animate >
+                                    <figcaption><span style="font-size:1ch"> <p>Illustration of the Formation modeling: virtual targets</p></figcaption>
+                                        
+                                        <p style="text-align: center; font-size: 0.25in;">
+                                            $ \underbrace{\text{Virtual structure modeling}}  _{\square \in {i,j,..,N}}$
+                                                $\begin{cases} 
+                                                [X_\square, Y_\square, \theta _\square]   \;  \text{vehicle's pose}, \; \mathcal{V}_\square \text{velocity}   \\
+                                                T_{d_{\square}} \; \text{and} \; \mathcal{V}_{T_{\square}} \;  \text{virtual target and velocity  of} \; V_\square \\
+                                                [h_\square, l_\square] \;\text{longitudinal and lateral coordinates of} \, T_{d_\square} w.r.t. [X_R, Y_R] \\
+
+                                                \end{cases}$
+                                           </p>
+                                           
+                                    </div>
+                                <div class="fragment fade-in-then-out" data-fragment-index="2">
+                                    <img src="images/Concept/VS/VS_03.svg" width="1450" height="450" alt="global_scenario" data-auto-animate>
+                                    <figcaption><span style="font-size:1ch"> <p>Illustration of the Formation modeling: Frenet coordinate system</p></figcaption>
+                                        <p style="text-align: center; font-size: 0.25in;">
+                                            $\text{Formation modeling}$
+                                                $\begin{cases} 
+                                                f_{i}^{init}=[h_i,l_i] ^T   \;  \text{initial coordinates of} \; T_{d_i}   \\
+                                                f_{j}^{init}=[h_j,l_j] ^T   \;  \text{initial coordinates of} \; T_{d_j} \\
+                                                F=[ f_{i}^T,  f_{j}^T] ^T; \text{formation coordinates}
+                                                \end{cases}$
+                                           </p>
+                               
+                                    </div>
+
+
+
+                                
+                            </div>
+
+                        <!-- The footer-->
+                        <div>
+                           <div class="footer" style="text-align: left;">
+                             <p>
+                             Safe and Energy Efficient Decision/Control Architecture for a Formation of Multi-Vehicle System in Dynamic Environment
+                            <br>
+                            Compiègne, 10-01-2024
+                            </p>
+                            </div>
+
+                            <div class="footer_images">
+                            <div class="row">
+                            <img data-src="images/Logo_Heudiasyc.png" height="30">   
+                            <img data-src="images/utc.png"  height="30">
+                            <img data-src="images/CNRS.png" height="30">
+                            </div>
+                            </div>
+                           </div>
+
+                        </section>
+
+                 
+                        
+
+                        <section data-auto-animate>
+                            <h3 style="text-align: left;">Objectives</h3>
+                            <ul>
+                                <li class="fragment  semi-fade-out" data-fragment-index="0" style="font-size: 2ch;"> Planning related objectives
+                                    <ol>
+                                        <li style="font-size: 1.5ch;">Formal formation modeling</li>                                      
+                                        <li style="font-size: 1.5ch;">Safe and smooth formation reconfiguration</li>
+                                    </ol>
+                                </li>
+                          
+
+
+                                <li class="fragment" data-fragment-index="0" style="font-size: 2ch;"> Decision-making objectives
+                                    <ol>
+                                        <li style="font-size: 1.5ch;">Formalization of the MVS cooperation </li>                                      
+                                        <li style="font-size: 1.5ch;">Balance between the MVS overarching/individual goals</li>
+                                        <li style="font-size: 1.5ch;">Balance between the safety, comfort and energy efficiency</li>
+
+                                    </ol>
+                                </li>
+
+                                
+                            </ul>
+
+                             <!-- The footer-->
+                            <div>
+                            <div class="footer" style="text-align: left;">
+                              <p>
+                              Safe and Energy Efficient Decision/Control Architecture for a Formation of Multi-Vehicle System in Dynamic Environment
+                             <br>
+                             Compiègne, 10-01-2024
+                             </p>
+                             </div>
+ 
+                             <div class="footer_images">
+                             <div class="row">
+                             <img data-src="images/Logo_Heudiasyc.png" height="30">   
+                             <img data-src="images/utc.png"  height="30">
+                             <img data-src="images/CNRS.png" height="30">
+                             </div>
+                             </div>
+                            </div>
+                        </section>
+                    
+                </section>
+                       
+                    
+
+  <!--Slide 3: context-->          
+  <section data-name="Architecture">
+                
+    <section data-auto-animate>
+        <h3  style="text-align: left;" >Proposed Cooperative Multi-Controller <br>Architecture (C-MCA)</h3>
+        
+    </section>
+
+
+
+
+
+
+    <section data-auto-animate>
+        <h4 style="text-align: left;">Cooperative Multi-Controller Architecture (C-MCA)</h4>
+        <br>
+        <img src="images/Architecture/Architecture.png" width="1650" height="450" alt="Global_Architecture" data-auto-animate>
+        <br>
+        <br>
+        <figcaption><span style="font-size:1ch"> <p>The Cooperative Multi-Controller Architecture (C-MCA)</p> </figcaption>
+             <!-- The footer-->
+             <div>
+                <div class="footer" style="text-align: left;">
+                  <p>
+                  Safe and Energy Efficient Decision/Control Architecture for a Formation of Multi-Vehicle System in Dynamic Environment
+                 <br>
+                 Compiègne, 10-01-2024
+                 </p>
+                 </div>
+
+                 <div class="footer_images">
+                 <div class="row">
+                 <img data-src="images/Logo_Heudiasyc.png" height="30">   
+                 <img data-src="images/utc.png"  height="30">
+                 <img data-src="images/CNRS.png" height="30">
+                 </div>
+                 </div>
+                </div>
+    </section>
+
+
+    <section data-auto-animate>
+        <h4 style="text-align: left;">Cooperative Multi-Controller Architecture (C-MCA)</h3>
+        <br>
+        <div class="parent3">
+            <div class="content3">
+                <div class="fragment shrink" data-fragment-index="2">
+                <img src="images/Architecture/Archi_2.png" width="950" height="450" alt="Archi_2" data-auto-animate>
+            </div>
+
+            </div>
+
+            <div class="left-menu3">
+                <br>
+                
+                <div style="font-size: 1.5ch;" class="fragment" data-fragment-index="2">
+                    <strong>Assumptions</strong>
+                    <ul>
+                        &nbsp; &nbsp; &nbsp;<li> Good communication quality <br>of service. 
+                          <!--  <ol>
+                                <li class="fragment fade-in-then-semi-out" data-fragment-index="2">Identifier attribution</li>
+                                <li class="fragment fade-in-then-semi-out" data-fragment-index="3">Communication delay and package losses</li>
+                            </ol>-->
+                        </li>
+                        &nbsp; &nbsp; &nbsp;<li> Reliable perception and localization modules. 
+                           <!-- <ol>
+                                <li class="fragment fade-in-then-semi-out" data-fragment-index="5">Reliablity of the perception and localization modules</li>
+                                <li class="fragment fade-in-then-semi-out" data-fragment-index="6">Lyapunov-based control approach (vilca ici)</li>
+                            </ol>-->
+                        </li>
+                    </ul>
+
+                </div>
+            </div>
+        </div>
+ <!-- The footer-->
+    <div>
+    <div class="footer" style="text-align: left;">
+      <p>
+      Safe and Energy Efficient Decision/Control Architecture for a Formation of Multi-Vehicle System in Dynamic Environment
+     <br>
+     Compiègne, 10-01-2024
+     </p>
+     </div>
+
+     <div class="footer_images">
+     <div class="row">
+     <img data-src="images/Logo_Heudiasyc.png" height="30">   
+     <img data-src="images/utc.png"  height="30">
+     <img data-src="images/CNRS.png" height="30">
+     </div>
+     </div>
+    </div>
+    </section>
+
+    <section data-auto-animate>
+        <h4 style="text-align: left;">Cooperative Multi-Controller Architecture (C-MCA)</h3>
+        <br>
+        <div class="parent">
+            <div class="content">
+                <img src="images/Architecture/Archi_3.png" width="900" height="450" alt="Archi_2" data-auto-animate>
+
+            </div>
+
+            <div class="left-menu">
+                <br>
+                
+            <div class="col r-stack">   
+                <div style="font-size: 1.5ch;">
+                    <ul>
+                        <p  style="font-size: 2ch;" class="fragment fade-in-then-out" data-fragment-index="1"> <strong>Decision-making level</strong>
+                            <ol>
+                                <li class="fragment  fade-in-then-out" data-fragment-index="1" style="font-size: 1.5ch;">Nominal behavior</li>  
+                                <ol>
+                                    <li class="fragment  fade-in-then-out" data-fragment-index="1" style="font-size: 1.5ch;">Satisfies the vehicles' individual goals</li>
+
+                                </ol>                                    
+                                <li class="fragment  fade-in-then-out" data-fragment-index="1" style="font-size: 1.5ch;">Cooperative behavior
+                                <ol>
+                                    <p style="font-size: 1.8ch;">$\color{red}{\boxed{\text{Goal: passing sequence} \;sq}}$ </p>
+
+                                    <li class="fragment  fade-in-then-out" data-fragment-index="1" style="font-size: 1.8ch;">Solves the merging possible conflict </li>                                      
+                                    <li class="fragment  fade-in-then-out" data-fragment-index="1" style="font-size: 1.8ch;">Satisfies the MVS overarching / individual goals</li>
+                                    <li class="fragment  fade-in-then-out" data-fragment-index="1" style="font-size: 1.8ch;">Balances between the safety, comfort and energy efficiency</li>
+            
+                                </ol>
+                                
+                                
+                                
+                                </li>
+                            
+                            
+                            
+                            </ol>
+                        </p>
+                  
+            
+            
+                       
+            
+                        
+                    </ul>
+
+                </div>
+
+                <!-- slider 2 -->
+                <div style="font-size: 1.5ch;">
+                    <ul>
+                        <p  style="font-size: 2ch;" class="fragment fade-in-then-out" data-fragment-index="2"> <strong>Local planning level</strong>
+                            <ol>
+                                <li class="fragment  fade-in-then-out" data-fragment-index="2" style="font-size: 1.5ch;">Nominal behavior</li>  
+                                <ul>
+                                    <li class="fragment  fade-in-then-out" data-fragment-index="2" style="font-size: 1.5ch;">Nominal trajectory <br></li>
+
+                                </ul>  
+                                <br>                                  
+                                <li class="fragment  fade-in-then-out" data-fragment-index="2" style="font-size: 1.5ch;">Cooperative behavior
+                                
+                                    <p class="fragment  fade-in-then-out" data-fragment-index="2" style="font-size: 1.8ch;">a- Translate $sq$ into formation shape </p>                                      
+                                    <p class="fragment  fade-in-then-out" data-fragment-index="2" style="font-size: 1.8ch;">b- Dynamic formation reconfiguration</p>
+            
+                                
+                                
+                                
+                                
+                                </li>
+                            
+                            
+                            
+                            </ol>
+                        </p>
+                  
+            
+            
+                       
+            
+                        
+                    </ul>
+
+                </div >
+
+
+
+            </div>
+
+
+
+        </div>
+
+
+             <div>
+             <div class="footer" style="text-align: left;">
+              <p>
+              Safe and Energy Efficient Decision/Control Architecture for a Formation of Multi-Vehicle System in Dynamic Environment
+             <br>
+             Compiègne, 10-01-2024
+             </p>
+             </div>
+        
+             <div class="footer_images">
+             <div class="row">
+             <img data-src="images/Logo_Heudiasyc.png" height="30">   
+             <img data-src="images/utc.png"  height="30">
+             <img data-src="images/CNRS.png" height="30">
+             </div>
+             </div>
+             </div>
+
+    </section>
+
+
+
+
+
+
+
+    <section data-auto-animate style="text-align: left;">
+        <h4 style="text-align: left;">The main contributions w.r.t. the C-MCA</h4>
+
+        <p  style="font-size: 1.8ch;">Decision-making level: <strong>Multi-behavior decision-making strategy</strong></p>
+        <ul>
+        <li style="font-size: 1.5ch;"> Altruistic passing sequence selection strategy <a href="https://ieeexplore.ieee.org/document/10242397">[MMAR'23] </a> </li>
+        </ul>
+        <p  style="font-size: 1.8ch;">Local trajectory planning level: <strong>Dynamic formation reconfiguration</strong></p>
+       
+            <ol>
+        <li style="font-size: 1.5ch;"> Constrained Optimal Reconfiguration Matrix (CORM) <a href="https://ieeexplore.ieee.org/document/9921870">
+            [ITSC'21] </a>   </li>
+        <li style="font-size: 1.5ch;"> Extended Constrained Optimal Reconfiguration Matrix (E-CORM) <a href="https://ieeexplore.ieee.org/document/10242397">[MMAR'23] </a></li>
+        <li style="font-size: 1.5ch;"> Formation Reconfiguration Approach based on Online Control Strategy (FRA-OCS) <a href="https://upf.hal.science/HDS_SYRI/hal-04306909v1">[ITSC'23] </a>  </li>
+           </ol>
+        
+           <div>
+            <div class="footer" style="text-align: left;">
+              <p>
+              Safe and Energy Efficient Decision/Control Architecture for a Formation of Multi-Vehicle System in Dynamic Environment
+             <br>
+             Compiègne, 10-01-2024
+             </p>
+             </div>
+        
+             <div class="footer_images">
+             <div class="row">
+             <img data-src="images/Logo_Heudiasyc.png" height="30">   
+             <img data-src="images/utc.png"  height="30">
+             <img data-src="images/CNRS.png" height="30">
+             </div>
+             </div>
+            </div>
+
+</section>
+ 
+
+
+
+
+
+
+
+
+
+
+
+</section> 
+
+   
+
+<!--Slide 3: context-->          
+<section data-name="Dynamic Formation Reconfiguration">
+                
+    <section data-auto-animate>
+        <h3  style="text-align: left;" >Dynamic formation reconfiguration</h3>
+        
+    </section>
+ 
+
+
+
+
+
+    <section data-auto-animate>
+        <h3 style="text-align: left;">Formation reconfiguration</h3>
+        <img src="images/Formation_reconfiguration/ScenarioMerging_matrix.png" width="1250" height="320" alt="Global_Architecture" data-auto-animate>
+        <br>
+        <br>
+        <figcaption><span style="font-size:1ch"> <p>Illustration of the dynamic formation reconfiguration concept</p> </span></figcaption>
+
+
+        <div class="r-stack">
+            <p class="fragment fade-out" data-fragment-index="1" style="font-size: 0.25in;"><em><span class="red" style="font-size: 0.3in;">Before the merging:</span></em> Initial formation </p>
+            <p class="fragment fade-in-then-out" data-fragment-index="1" style="font-size: 0.25in;"><span class="grey">Before the merging: Initial formation</span></em>  → <em><span class="red" style="font-size: 0.3in;">During the merging:</span></em> Intermediary formation</p>
+            <p class="fragment fade-in-then-semi-out" data-fragment-index="2" style="font-size: 0.25in;"><span class="grey">Before the merging: Initial formation → During the merging: Intermediary formation </span>→ <em><span class="red" style="font-size: 0.3in;">After the merging: </span></em> Desired formation</p>
+
+        </div>
+
+        <div class="r-stack">
+            <p class="fragment fade-out" data-fragment-index="1" style="font-size: 0.25in;"><span  style="font-size: 0.3in;">$\color{blue}{F^\color{red}{{init}}}=[f_{1}^{{\color{red}{init}}^T}, ...,f_{N}^{\color{red}{init}^T}]^T$</span> </p>
+            <p class="fragment fade-in-then-out" data-fragment-index="1" style="font-size: 0.25in;"><span  style="font-size: 0.25in;" class="grey">$\color{grey}{F^{init}}=[f_{1}^{{init}^T}, ...,f_{N}^{{init}^T}]^T$</span>  &nbsp; &nbsp; &nbsp; &nbsp; &nbsp; &nbsp; &nbsp; &nbsp;&nbsp; &nbsp; &nbsp; &nbsp;<span  style="font-size: 0.3in;">$\color{blue}{F(t)}=[f_{1}(t)^T, ...,f_{N}(t)^T]^T$</span></p>
+            <p class="fragment fade-in-then-semi-out" data-fragment-index="2" style="font-size: 0.25in;"><span class="grey">$\color{grey}{F^{init}}=[f_{1}^{{init}^T}, ...,f_{N}^{{init}^T}]^T$ </span>                        &nbsp; &nbsp;&nbsp; &nbsp;&nbsp; &nbsp;&nbsp; &nbsp;&nbsp; &nbsp;&nbsp; &nbsp;&nbsp; &nbsp;&nbsp; &nbsp; &nbsp; &nbsp; &nbsp; &nbsp;<span class="grey" style="font-size: 0.25in;">$\color{grey}{F(t)}=[f_{1}(t)^T, ...,f_{N}(t)^T]^T$</span>  &nbsp; &nbsp; &nbsp; &nbsp;&nbsp; &nbsp;<span  class="black" style="font-size: 0.3in;">$\color{blue}{F^{\color{red}{end}}}=[f_{1}^{{\color{red}{end}}^T}, ...,f_{N}^{ {\color{red}{end}} ^{T}}]^T$ </span></p>
+
+        </div>
+        <p style="font-size: 0.25in; text-align: left;">with $f_i=[h_i,l_i]^T$</p>
+        
+        <div>
+            <div class="footer" style="text-align: left;">
+             <p>
+             Safe and Energy Efficient Decision/Control Architecture for a Formation of Multi-Vehicle System in Dynamic Environment
+            <br>
+            Compiègne, 10-01-2024
+            </p>
+            </div>
+       
+            <div class="footer_images">
+            <div class="row">
+            <img data-src="images/Logo_Heudiasyc.png" height="30">   
+            <img data-src="images/utc.png"  height="30">
+            <img data-src="images/CNRS.png" height="30">
+            </div>
+            </div>
+            </div>
+
+    </section>
+
+
+    
+
+    <section style="text-align: left;">
+            <header align="left"><h4>Background: Inter-target distance matrix  <a href="https://ieeexplore.ieee.org/document/8430659">
+                <span style="font-size: 1ch;">[Vilca et al., 2019]</span>  </a></h4></header> 
+                
+<div class="center">   
+    <img  class="center"  src="images/Formation_reconfiguration/ScenarioMerging_matrix.png" width="1250" height="300" alt="Global_Architecture" data-auto-animate >
+    <br>
+    <br>
+    <figcaption><span style="font-size:1ch"> <p>Illustration of the dynamic formation reconfiguration concept</p> </span></figcaption>
+</div>
+             
+     
+                 <p style="font-size: 1.1ch;"> $ \color{blue}{e_{f_{i}}=[e_{h_{i}},e_{l_{i}}]^T}$ is the convergence error with: &nbsp; 
+     
+                 $ \begin{cases}
+                 \color{blue}{e_{f_{i}}=f_{i}^{end} - f_{i}(t)},\\
+                 f_{i}(t)=[h_{i}(t), l_{i}(t)]^T,\\
+                 f_{i}^{end}=[h_{i}^{end},l_{i}^{end}]^T,
+                 \end{cases}$</p>
+                 <p style="font-size: 1.2ch;" >  The global error for a formation composed of $N$ vehicles &nbsp; $\color{blue}{e_{F}=F^{end} - F(t)}$</p>
+                
+                 <p style="font-size: 0.8ch;"><a href="https://ieeexplore.ieee.org/document/8430659">
+                    <span >[Vilca et al., 2019]</span>  </a>Vilca Ventura, José, Adouane, Lounis, et Mezouar, Youcef. Stable and flexible multi-vehicle navigation based on dynamic inter-target distance matrix. IEEE Transactions on Intelligent Transportation Systems, 2018, vol. 20, no 4, p. 1416-1431.</p>
+
+
+
+
+    <div>
+    <div class="footer" style="text-align: left;">
+     <p>
+     Safe and Energy Efficient Decision/Control Architecture for a Formation of Multi-Vehicle System in Dynamic Environment
+    <br>
+    Compiègne, 10-01-2024
+    </p>
+    </div>
+
+    <div class="footer_images">
+    <div class="row">
+    <img data-src="images/Logo_Heudiasyc.png" height="30">   
+    <img data-src="images/utc.png"  height="30">
+    <img data-src="images/CNRS.png" height="30">
+    </div>
+    </div>
+    </div>
+         
+    </section>
+  
+
+
+    <section >
+        
+        <h3 style="text-align: left;">Background: Inter-target distance matrix  <a href="https://ieeexplore.ieee.org/document/8430659">
+            <span style="font-size: 1ch;">[Vilca et al., 2019]</span>  </a></h3>
+            <p   style="font-size: 1.4ch; text-align: left;" class="fragment semi-fade-out"  data-fragment-index="1">  Application of a first order convergence method  &nbsp; $\dot{e}_{F}= \color{blue}{A}e_F$</p>
+            <p   class="fragment semi-fade-out"  data-fragment-index="1"   style="font-size: 1.4ch; text-align:left;" >  With   &nbsp; $e_F=[e_{f_{1}}^T, ..., e_{f_{N}}^T]^T$ and &nbsp; $\color{blue}{A}^{2N \times 2N}$</p>
+            <span class="fragment fade-in-then-semi-out"  data-fragment-index="1" style="text-align: center; font-size: 1.3ch;">
+                    <span class="fragment shrink small"  data-fragment-index="2"style="text-align: center;">
+
+                 $ \color{blue}{ A} = 
+                 \begin{bmatrix}
+                  a_{1}I^{2 \times 2} & a_{12}I^{2 \times 2} & \cdots & a_{1N}I^{2 \times 2} \\
+                  -a_{12}I^{2 \times 2} & a_{2}I^{2 \times 2} & \cdots & a_{2N}I^{2 \times 2} \\
+                  \vdots  & \vdots  & \ddots & \vdots  \\
+                  -a_{1N}I^{2 \times 2} & -a_{2N}I^{2 \times 2} & \cdots & a_{N}I^{2 \times 2} 
+                 \end{bmatrix}$  
+
+                 $\begin{cases}
+                 \color{blue}{A} \; \text{Negative definite}\\
+                 \text{Diagonal terms: convergence rate}\\
+                 \text{Non-diagonal terms: inter-target distance}
+                 \end{cases}$
+                 </span></span> 
+       
+      
+
+            <p  style="text-align: left;" class="fragment fade-in-then-semi-out" data-fragment-index="2">✔️  <span style="font-size: 1.5ch;">Safe inter-target distances are formally ensured </span> <span style="font-size: 1.4ch;"> </p>
+            <p  style="text-align: left;" class="fragment fade-in-then-semi-out" data-fragment-index="2">✔️  <span style="font-size: 1.5ch;">Easily flexible for $N$ vehicles</span>  </p>
+            <p  class="fragment fade-in" data-fragment-index="3" style="text-align: left;" >❌  <span style="font-size: 1.5ch;" class="black"> Built for open environment navigation <br>
+                &nbsp; &nbsp; &nbsp; &nbsp; &nbsp; &nbsp; &nbsp; &nbsp; &nbsp; &nbsp; <span class="red">Merging on-ramp on highway: on road scenario → constrained environment </span>
+            </span> </p>
+            
+            <div>
+                <div class="footer" style="text-align: left;">
+                 <p>
+                 Safe and Energy Efficient Decision/Control Architecture for a Formation of Multi-Vehicle System in Dynamic Environment
+                <br>
+                Compiègne, 10-01-2024
+                </p>
+                </div>
+           
+                <div class="footer_images">
+                <div class="row">
+                <img data-src="images/Logo_Heudiasyc.png" height="30">   
+                <img data-src="images/utc.png"  height="30">
+                <img data-src="images/CNRS.png" height="30">
+                </div>
+                </div>
+            </div>   
+    </section>
+
+
+  
+    <section style="text-align: left;">
+        <h3>Constrained Optimal Reconfiguration Matrix (CORM)  </h3>
+        <p > <span class="blue">Main goal:</span> Adapt the inter-distance matrix $\color{blue}{A}$ to constrained on road environment </p>
+        <p  class="fragment"> <span class="blue">How?:</span> Act on the <span class="green">diagonal gains</span> of $\color{blue}{A}$ </p>
+
+        <div>
+            <div class="footer" style="text-align: left;">
+             <p>
+             Safe and Energy Efficient Decision/Control Architecture for a Formation of Multi-Vehicle System in Dynamic Environment
+            <br>
+            Compiègne, 10-01-2024
+            </p>
+            </div>
+       
+            <div class="footer_images">
+            <div class="row">
+            <img data-src="images/Logo_Heudiasyc.png" height="30">   
+            <img data-src="images/utc.png"  height="30">
+            <img data-src="images/CNRS.png" height="30">
+            </div>
+            </div>
+        </div>      
+            
+    </section>
+
+    <section style="text-align: left;">
+        <h4>Constrained reconfiguration matrix </h3>
+        <p  style="text-align: center;font-size: 1.0ch;" >$\begin{align} 
+            J_{\substack{ a_{k} \forall k  \in {N}}} = \sum_{k=0}^{T} \Bigg[ &w_{i}\Big[ \frac{\color{crimson}{PerpDist\{T_{d_{i}}(k),{T}_{p_{i}}(k)\}}}{\color{blue}{PerpDist\{{T}_{p_{i}}(k),Border\}}}\Big]^2 + \nonumber  
+            w_{j}\Big[\frac{\color{crimson}{PerpDist\{T_{d_{j}}(k), {T}_{p_{j}}(k)}}{\color{blue}{PerpDist\{{T}_{p_{j}}(k),Border\}}}\Big]^2\Bigg]
+            \end{align}$ </p>
+        <p style="text-align: left;font-size: 1.0ch;"> with $w_i$ and $w_j$, $w \in \Real $  are the optimization weights. </p>
+        <img src="images/CORM/opti_fig.png" width="1250" height="350" alt="Archi_2" data-auto-animate>
+        <br>
+        <br>
+        <figcaption><span style="font-size:1ch"> <p>The projection of $T_{d_i}$ w.r.t. the reference trajectory</p></figcaption> 
+            <div>
+                <div class="footer" style="text-align: left;">
+                 <p>
+                 Safe and Energy Efficient Decision/Control Architecture for a Formation of Multi-Vehicle System in Dynamic Environment
+                <br>
+                Compiègne, 10-01-2024
+                </p>
+                </div>
+           
+                <div class="footer_images">
+                <div class="row">
+                <img data-src="images/Logo_Heudiasyc.png" height="30">   
+                <img data-src="images/utc.png"  height="30">
+                <img data-src="images/CNRS.png" height="30">
+                </div>
+                </div>
+            </div>  
+        
+        </section>
+   
+
+
+    <section style="text-align: left;">
+        <p class="fragment semi-fade-out" data-fragment-index="0"> ❌ $\mathcal{M}$ do not always respect the reference path </p>
+        <br>
+        <h4 class="fragment fade-in" data-fragment-index="0">Safe and feasible local trajectory planning   </h4>
+        <span  class="fragment fade-in-then-semi-out" data-fragment-index="0"> ✔️ Global reference aware target </span>
+        <ul>
+        <span class="fragment fade-in-then-semi-out" data-fragment-index="0" style="text-align: left;"> 💡 Project $T_d$ onto the reference trajectrory $\rightarrow\overline{T}_p$</span> <br>
+        <span class="fragment fade-in-then-semi-out" data-fragment-index="0" style="text-align: left;">❌How to maintain the reconfiguration safety ? </span></ul>
+
+        <p  class="fragment" data-fragment-index="1"> ✔️ Safe and feasible velocity profile </p>  
+        <div>
+            <div class="footer" style="text-align: left;">
+             <p>
+             Safe and Energy Efficient Decision/Control Architecture for a Formation of Multi-Vehicle System in Dynamic Environment
+            <br>
+            Compiègne, 10-01-2024
+            </p>
+            </div>
+       
+            <div class="footer_images">
+            <div class="row">
+            <img data-src="images/Logo_Heudiasyc.png" height="30">   
+            <img data-src="images/utc.png"  height="30">
+            <img data-src="images/CNRS.png" height="30">
+            </div>
+            </div>
+        </div>  
+  
+    </section>
+
+
+
+    <section style="text-align: left;">
+        <h4> ✔️ Safe and feasible velocity profile  </h4>
+        <p style="text-align: center;"><strong>Necessary mean velocity $\overline{\mathcal{V}}_i$</strong> imposed to  $\overline{T}_p$ </p>
+        <p style="text-align: center;font-size: 1.5ch;">    $EucDist \{\bar{T}_{p_j}(t_{Cz}),\bar{T}_{p_i}(t_{Cz})\} \color{red}{=} 
+            EucDist \{T_{d_j}(t_{Cz}),T_{d_i}(t_{Cz})\}$ </p>
+        <br>
+        <img src="images/CORM/ScenarioMergingMeanVelocity.png" width="1250" height="300" alt="Global_Architecture" data-auto-animate>
+        <br>
+        <br>
+        <figcaption><span style="font-size:1.5ch"> <p>Definition of the conflicting zone (Cz)</p> </span></figcaption>
+        <div>
+            <div class="footer" style="text-align: left;">
+             <p>
+             Safe and Energy Efficient Decision/Control Architecture for a Formation of Multi-Vehicle System in Dynamic Environment
+            <br>
+            Compiègne, 10-01-2024
+            </p>
+            </div>
+       
+            <div class="footer_images">
+            <div class="row">
+            <img data-src="images/Logo_Heudiasyc.png" height="30">   
+            <img data-src="images/utc.png"  height="30">
+            <img data-src="images/CNRS.png" height="30">
+            </div>
+            </div>
+        </div>  
+    
+    
+    
+    
+    </section>
+
+
+
+    <section style="text-align: left;">
+        <h4> Simulation scenario  </h4>
+        <br>
+        <img src="images/CORM/Simulation_scenario.png" width="1350" height="450" alt="Global_Architecture" data-auto-animate>
+        <br>
+        <br>
+        <figcaption><span style="font-size:1ch"> <p>Illustrative scenario: Evolution of the formation shape during the merging </p> </span></figcaption>
+        <div>
+            <div class="footer" style="text-align: left;">
+             <p>
+             Safe and Energy Efficient Decision/Control Architecture for a Formation of Multi-Vehicle System in Dynamic Environment
+            <br>
+            Compiègne, 10-01-2024
+            </p>
+            </div>
+       
+            <div class="footer_images">
+            <div class="row">
+            <img data-src="images/Logo_Heudiasyc.png" height="30">   
+            <img data-src="images/utc.png"  height="30">
+            <img data-src="images/CNRS.png" height="30">
+            </div>
+            </div>
+        </div>  
+    
+    
+    </section>
+
+
+    <section style="text-align: center;">
+        <div >
+            <video muted data-autoplay src="videos/CORM_Sim.mp4"  width="1200" height="600" data-video-loop></video>
+             <figcaption> <p style="text-align: center;"> <span style="font-size: 0.2in;" > CORM's simulation video</span></p></figcaption>
+         
+         </div>
+        <!--
+        <iframe data-autoplay width="1000" height="500" src="http://www.youtube.com/embed/0bwQwvnehM4?autoplay=1&loop=1&playlist=0bwQwvnehM4&control=0" frameborder="0" allowfullscreen></iframe>​
+        -->
+        <div>
+            <div class="footer" style="text-align: left;">
+             <p>
+             Safe and Energy Efficient Decision/Control Architecture for a Formation of Multi-Vehicle System in Dynamic Environment
+            <br>
+            Compiègne, 10-01-2024
+            </p>
+            </div>
+       
+            <div class="footer_images">
+            <div class="row">
+            <img data-src="images/Logo_Heudiasyc.png" height="30">   
+            <img data-src="images/utc.png"  height="30">
+            <img data-src="images/CNRS.png" height="30">
+            </div>
+            </div>
+        </div>  
+    
+    </section>
+
+    <section data-auto-animate>
+        <h4 style="text-align: left;">Simulation scenario</h4>
+        <br>
+        <div  style="text-align: left;font-size: 1.5ch;" class="row">
+            <div  style="align-items: center;" class="column">
+                <img src="images/CORM/VelocityProfiles.png" width="500" height="580" data-auto-animate >
+    
+                
+                <br>
+            </div>
+            <div class="column">
+                <img src="images/CORM/inbetweendistances.png" width="500" height="580"  data-auto-animate>
+    
+    
+            </div>
+          </div>
+          <div>
+            <div class="footer" style="text-align: left;">
+             <p>
+             Safe and Energy Efficient Decision/Control Architecture for a Formation of Multi-Vehicle System in Dynamic Environment
+            <br>
+            Compiègne, 10-01-2024
+            </p>
+            </div>
+       
+            <div class="footer_images">
+            <div class="row">
+            <img data-src="images/Logo_Heudiasyc.png" height="30">   
+            <img data-src="images/utc.png"  height="30">
+            <img data-src="images/CNRS.png" height="30">
+            </div>
+            </div>
+        </div>  
+    </section>
+
+    <section >
+        <h4  style="text-align: left;">CORM evaluation </h4>
+        <p  class="fragment semi-fade-out"  data-fragment-index="1"style="text-align: left;"> <span class="blue"> Advantages </span></p>
+        <p class="fragment semi-fade-out"  data-fragment-index="1"style="text-align: left;">✔️  <span style="font-size: 1.8ch;">First adaptation of inter-target distance matrix to a constrained environment</span> </p>
+        <p class="fragment semi-fade-out"  data-fragment-index="1"style="text-align: left;">✔️  <span style="font-size: 1.8ch;">Safe and smooth formal formation reconfiguration</span>  </p>
+        <p class="fragment ; blue" data-fragment-index="1"style="text-align: left;" class="blue"> Limitations </p>
+        <p class="fragment " data-fragment-index="1"style="text-align: left;">❌  <span style="font-size: 1.8ch;">Time cost of the non-linear numerical optimization </span>  </p>
+        <p class="fragment " data-fragment-index="1"style="text-align: left;">❌  <span style="font-size: 1.8ch;">Limited motion flexibility <br>
+        
+            &nbsp; &nbsp; &nbsp; &nbsp; &nbsp; &nbsp; &nbsp; &nbsp;&nbsp; &nbsp; &nbsp; &nbsp; <span class="red"> Same convergence rate for longitudinal and lateral motion </span>    
+        </span> </p>
+    
+        <div>
+            <div class="footer" style="text-align: left;">
+             <p>
+             Safe and Energy Efficient Decision/Control Architecture for a Formation of Multi-Vehicle System in Dynamic Environment
+            <br>
+            Compiègne, 10-01-2024
+            </p>
+            </div>
+       
+            <div class="footer_images">
+            <div class="row">
+            <img data-src="images/Logo_Heudiasyc.png" height="30">   
+            <img data-src="images/utc.png"  height="30">
+            <img data-src="images/CNRS.png" height="30">
+            </div>
+            </div>
+        </div>  
+
+
+    </section>
+
+
+    <section >
+        <h4  style="text-align: left;">Extended- CORM (E-CORM)</h4>
+
+        
+        <p  style="text-align: left;" > ❌  <span style="font-size: 1.8ch;">CORM's Limited motion flexibility </span></p>
+        <p  style="text-align: left;"> <strong>How?</strong> </p>
+        <p  data-fragment-index="1" style="text-align: left;">  
+            ✔️Augmented inter-target distance matrix <br>
+            ✔️Trajectory segmentation strategy</p>
+            <div>
+                <div class="footer" style="text-align: left;">
+                 <p>
+                 Safe and Energy Efficient Decision/Control Architecture for a Formation of Multi-Vehicle System in Dynamic Environment
+                <br>
+                Compiègne, 10-01-2024
+                </p>
+                </div>
+           
+                <div class="footer_images">
+                <div class="row">
+                <img data-src="images/Logo_Heudiasyc.png" height="30">   
+                <img data-src="images/utc.png"  height="30">
+                <img data-src="images/CNRS.png" height="30">
+                </div>
+                </div>
+            </div>  
+  
+  
+        </section>
+        
+   
+   
+   <section >
+            <h4  style="text-align: left;">The augmented inter-target distance matrix</h4>
+        
+        <p class="fragment semi-fade-out" data-fragment-index="1"style="text-align: center;">  <span style="font-size: 1.8ch;">$ S = \color{blue}{\dot{e}} + \color{green}{\lambda} \color{blue}{e}  + \color{crimson}{\gamma} \color{blue}{\smallint e\; dt}$</span>  </p>
+        <p class="fragment semi-fade-out" data-fragment-index="1"style="text-align: left;">   <span style="font-size: 1.8ch;">with $\color{green}{\lambda}, \; \color{crimson}{\gamma} \in \mathbb{R}^+ $ are the convergence gains </span> </p>
+
+        <p   class="fragment" data-fragment-index="1" style="text-align: center; font-size: 1.5ch;">$\begin{equation}
+            \begin{bmatrix} 
+            \dot{S}_{h_{i}} \\
+            \dot{S}_{l_{i}} \\
+        
+            \end{bmatrix}= 
+
+            AS=
+            \color{black}{\Omega_{1}}
+            \begin{bmatrix} 
+            \color{blue}{
+            \dot{e}_{h_{i}} \\
+            \dot{e}_{l_{i}} \\
+            
+            } \\ \end{bmatrix}+
+            \color{green}{\Omega_{2}}
+            \begin{bmatrix} 
+            \color{blue}{{e}_{h_{i}} \\
+            {e}_{l_{i}} \\
+          
+          } \\ \end{bmatrix}
+            +\color{crimson}{\Omega_{3}}
+              \begin{bmatrix} 
+            \color{blue}{\smallint{e}_{h_{i}} \, dt\\
+            \smallint{e}_{l_{i}} \,dt\\
+            } \\
+            \end{bmatrix}
+            \end{equation}$</p>
+
+<p class="fragment" data-fragment-index="1" style="text-align: left;font-size: 1.8ch;">where: </p>
+            <p class="fragment" data-fragment-index="1" style="text-align: center; font-size: 1.5ch;"> 
+                $\begin{equation}
+                \begin{cases}
+                \color{black}{\Omega_{1}=diag[a_{h_{i}},a_{l_{i}}]},\\
+                \color{green}{\Omega_{2}}=diag[a_{h_{i}}\color{green}{\lambda_{h_{i}}},a_{l_{i}}\color{green}{\lambda_{l_{i}}}],\\
+                \color{crimson}{\Omega_{3}}=diag[a_{h_{i}}\color{crimson}{\gamma_{h_{i}}},a_{l_{i}}\color{crimson}{\gamma_{l_{i}}}],
+                \end{cases}
+                \end{equation}$
+           </p>
+           <div>
+
+            <p class="fragment" data-fragment-index="1" style="text-align: center; font-size: 1.5ch;"><span class="red" style="font-size: 0.3in;"> Decorrelate the longitudinal and the lateral motion</span></p>
+            <div class="footer" style="text-align: left;">
+             <p>
+             Safe and Energy Efficient Decision/Control Architecture for a Formation of Multi-Vehicle System in Dynamic Environment
+            <br>
+            Compiègne, 10-01-2024
+            </p>
+            </div>
+       
+            <div class="footer_images">
+            <div class="row">
+            <img data-src="images/Logo_Heudiasyc.png" height="30">   
+            <img data-src="images/utc.png"  height="30">
+            <img data-src="images/CNRS.png" height="30">
+            </div>
+            </div>
+        </div>  
+
+    </section>
+
+
+    
+
+
+    <!--  <section data-auto-animate>
+        <h4  style="text-align: left;">The augmented inter-target distance matrix</h4>
+        <p style="text-align: left; font-size: 1.2ch;">The inter-target distance reconfiguration matrix: </p>
+        <p style="text-align: center; font-size: 1.0ch;">$\begin{equation}
+                    \begin{bmatrix} 
+                   \dot{S}_{h_{1}} \\
+                    \dot{S}_{l_{1}} \\
+                    \dot{S}_{h_{2}} \\
+                    \dot{S}_{l_{2}} \\
+                    \vdots \\
+                    \dot{S}_{h_{N}} \\
+                    \dot{S}_{l_{N}} \\
+                    \end{bmatrix}= 
+                     \color{orange}{\Omega_{1}}
+                      \begin{bmatrix} 
+                      \color{blue}{\dot{e}_{h_{1}} \\
+                    \dot{e}_{l_{1}} \\
+                    \dot{e}_{h_{2}} \\
+                    \dot{e}_{l_{2}} \\
+                    \vdots \\
+                    \dot{e}_{h_{N}} \\
+                    \dot{e}_{l_{N}}} \\
+                    \end{bmatrix}
+                    \end{equation}$</p>
+
+
+                    <p style="text-align: center; font-size: 1.5ch;"> 
+                        $\begin{equation}
+                        \begin{cases}
+                        \color{orange}{\Omega_{1}}=diag[\color{orange}{a_{h_{1}},a_{l_{1}},\cdots,a_{h_{N}},a_{l_{N}}}],\\
+                        
+                        \end{cases}
+                        \end{equation}$
+                   </p>
+    </section>
+
+
+
+    <section data-auto-animate>
+        <h4  style="text-align: left;">The augmented inter-target distance matrix</h4>
+        <p   style="text-align: left; font-size: 1.2ch;">The inter-target distance reconfiguration matrix: </p>
+        <p   style="text-align: center; font-size: 1.0ch;">$\begin{equation}
+                    \begin{bmatrix} 
+                    \dot{S}_{h_{1}} \\
+                    \dot{S}_{l_{1}} \\
+                    \dot{S}_{h_{2}} \\
+                    \dot{S}_{l_{2}} \\
+                    \vdots \\
+                    \dot{S}_{h_{N}} \\
+                    \dot{S}_{l_{N}} \\
+                    \end{bmatrix}= 
+                    \color{grey}{\Omega_{1}}
+                    \begin{bmatrix} 
+                    \color{grey}{\dot{e}_{h_{1}} \\
+                    \dot{e}_{l_{1}} \\
+                    \dot{e}_{h_{2}} \\
+                    \dot{e}_{l_{2}} \\
+                    \vdots \\
+                    \dot{e}_{h_{N}} \\
+                    \dot{e}_{l_{N}}} \\
+                    \end{bmatrix}+
+                    \color{limegreen}{\Omega_{2}}
+                    \begin{bmatrix} 
+                     \color{blue}{{e}_{h_{1}} \\
+                    {e}_{l_{1}} \\
+                    {e}_{h_{2}} \\
+                    {e}_{l_{2}} \\
+                    \vdots \\
+                    {e}_{h_{N}} \\
+                    {e}_{l_{N}}} \\
+                    \end{bmatrix}
+                    \end{equation}$</p>
+
+
+                    <p style="text-align: center; font-size: 1.5ch;"> 
+                        $\begin{equation}
+                        \begin{cases}
+                        \color{grey}{\Omega_{1}=diag[a_{h_{1}},a_{l_{1}},\cdots,a_{h_{N}},a_{l_{N}}]},\\
+                        \color{limegreen}{\Omega_{2}}=diag[a_{h_{1}}\color{limegreen}{\lambda_{h_{1}}},a_{l_{1}}\color{limegreen}{\lambda_{l_{1}}},\cdots,a_{h_{N}}\color{limegreen}{\lambda_{h_{N}}},a_{l_{N}}\color{limegreen}{\lambda_{l_{N}}}],\\
+                        \end{cases}
+                        \end{equation}$
+                   </p>
+    </section>--> 
+
+
+
+    <section data-auto-animate>
+        <h4 style="text-align: left;">Trajectory segmentation strategy</h4>
+        <br>
+        <img src="images/E-CORM/segmentation_figure.png" width="1250" height="320" alt="Global_Architecture" data-auto-animate>
+        <br>
+        <br>
+        <figcaption><span style="font-size:1ch"> <p>Road segementation strategy</p> </span></figcaption>
+        <div  style="text-align: left;font-size: 1.5ch;" class="row">
+            <div class="column">
+                
+                <span class="red">Segment B: </span>$ V_j$
+                <br>
+                ✔️ Longitudinal reconfiguration
+                <br>
+                ✔️ Lateral reconfiguration
+            </div>
+            <div class="column">
+                <span class="green">Segment A: </span>$V_i$
+                <br>
+                ✔️ Longitudinal reconfiguration
+                <br>
+                <span style="font-size: 0.5in;"> 🗸</span>&nbsp; Lateral motion - centerline                <br>
+            </div>
+          </div>
+          <div>
+            <div class="footer" style="text-align: left;">
+             <p>
+             Safe and Energy Efficient Decision/Control Architecture for a Formation of Multi-Vehicle System in Dynamic Environment
+            <br>
+            Compiègne, 10-01-2024
+            </p>
+            </div>
+       
+            <div class="footer_images">
+            <div class="row">
+            <img data-src="images/Logo_Heudiasyc.png" height="30">   
+            <img data-src="images/utc.png"  height="30">
+            <img data-src="images/CNRS.png" height="30">
+            </div>
+            </div>
+        </div>  
+    </section>
+
+    <section data-auto-animate>
+        <div class="ex2">
+        <h4 style="text-align: left;">Simulation scenario</h4>
+        <br>
+        <div  style="text-align: left;font-size: 1.5ch;" class="row">
+            <div class="column">
+                <img src="images/E-CORM/Formation_coordinates.png" width="1200" height="500" alt="Global_Architecture" data-auto-animate>
+
+                
+                <br>
+            </div>
+            <div class="column">
+                <img src="images/E-CORM/Formation_shape.png" width="1200" height="500" alt="Global_Architecture" data-auto-animate>
+
+
+            </div>
+          </div>
+        </div>
+
+
+        <div>
+            <div class="footer" style="text-align: left;">
+             <p>
+             Safe and Energy Efficient Decision/Control Architecture for a Formation of Multi-Vehicle System in Dynamic Environment
+            <br>
+            Compiègne, 10-01-2024
+            </p>
+            </div>
+       
+            <div class="footer_images">
+            <div class="row">
+            <img data-src="images/Logo_Heudiasyc.png" height="30">   
+            <img data-src="images/utc.png"  height="30">
+            <img data-src="images/CNRS.png" height="30">
+            </div>
+            </div>
+        </div>  
+        
+
+    </section>
+
+    <section data-auto-animate>
+        <div class="ex2">
+        <h4 style="text-align: left;">Simulation scenario</h4>
+        <br>
+        <div  style="text-align: left;font-size: 1.5ch;" class="row">
+            <div class="column">
+                <img src="images/E-CORM/Velocities.png" width="1200" height="500" alt="Global_Architecture" data-auto-animate>
+
+                
+                <br>
+            </div>
+            <div class="column">
+                <img src="images/E-CORM/distances.png" width="1200" height="500" alt="Global_Architecture" data-auto-animate>
+
+
+            </div>
+          </div>
+        </div>
+        <div>
+            <div class="footer" style="text-align: left;">
+             <p>
+             Safe and Energy Efficient Decision/Control Architecture for a Formation of Multi-Vehicle System in Dynamic Environment
+            <br>
+            Compiègne, 10-01-2024
+            </p>
+            </div>
+       
+            <div class="footer_images">
+            <div class="row">
+            <img data-src="images/Logo_Heudiasyc.png" height="30">   
+            <img data-src="images/utc.png"  height="30">
+            <img data-src="images/CNRS.png" height="30">
+            </div>
+            </div>
+        </div>  
+    </section>
+
+    <section >
+        <h4  style="text-align: left;">E-CORM evaluation </h4>
+
+        <p class="fragment semi-fade-out" data-fragment-index="0"style="text-align: left;"> <span class="blue">Advantages</span>  </p>
+        <p class="fragment semi-fade-out" data-fragment-index="0"style="text-align: left;">✔️  <span style="font-size: 1.8ch;">Safe and smooth formal formation reconfiguration</span>  </p>
+        <p class="fragment semi-fade-out" data-fragment-index="0"style="text-align: left;">✔️  <span style="font-size: 1.8ch;">An improved flexibility during the reconfiguration 
+       <ul class="fragment semi-fade-out" data-fragment-index="0" style="font-size: 1.6ch;"> <li> Decorrelate the longitudinal and the lateral motion</li></ul></span>  </p>
+
+        <p class="fragment ; " data-fragment-index="0"style="text-align: left;"> <span class="blue"> Limitations </span></p>
+        <p class="fragment " data-fragment-index="0"style="text-align: left;">❌  <span style="font-size: 1.8ch;">Time cost of the non-linear numerical optimization </span>  </p>
+        <div>
+            <div class="footer" style="text-align: left;">
+             <p>
+             Safe and Energy Efficient Decision/Control Architecture for a Formation of Multi-Vehicle System in Dynamic Environment
+            <br>
+            Compiègne, 10-01-2024
+            </p>
+            </div>
+       
+            <div class="footer_images">
+            <div class="row">
+            <img data-src="images/Logo_Heudiasyc.png" height="30">   
+            <img data-src="images/utc.png"  height="30">
+            <img data-src="images/CNRS.png" height="30">
+            </div>
+            </div>
+        </div>  
+    
+    </section>
+
+
+
+    <section >
+        <h4  style="text-align: left;">Formation Reconfiguration Approach <span style = "text-transform: lowercase"> based on an</span> Online Control Strategy(FRA-OCS)</h4>
+
+        
+        <p class="fragment semi-fade-out" data-fragment-index="0" style="text-align: left;" > ❌  <span style="font-size: 1.8ch;">E-CORM's time cost: non-linear optimization </span></p>
+        <p class="fragment fade-in" data-fragment-index="0" style="text-align: left;"> 💡 How?</p>
+        <p class="fragment fade-in" data-fragment-index="0" style="text-align: left;">  
+            ✔️ Optimization-free formation reconfiguration algorithm<br>
+    
+    
+    
+            <div>
+                <div class="footer" style="text-align: left;">
+                 <p>
+                 Safe and Energy Efficient Decision/Control Architecture for a Formation of Multi-Vehicle System in Dynamic Environment
+                <br>
+                Compiègne, 10-01-2024
+                </p>
+                </div>
+           
+                <div class="footer_images">
+                <div class="row">
+                <img data-src="images/Logo_Heudiasyc.png" height="30">   
+                <img data-src="images/utc.png"  height="30">
+                <img data-src="images/CNRS.png" height="30">
+                </div>
+                </div>
+            </div>  
+        </section>
+    <section >
+        <h4  style="text-align: left;"> Optimization-free formation reconfiguration algorithm</h4>
+    
+    <p class="fragment semi-fade-out" data-fragment-index="0"style="text-align: center;">  <span style="font-size: 1.8ch;">$ S = \color{blue}{\dot{e}} + \color{green}{\lambda} \color{blue}{e} $</span>  </p>
+    <p class="fragment semi-fade-out" data-fragment-index="0"style="text-align: left;">   <span style="font-size: 1.8ch;">with $\color{green}{\lambda} \in \mathbb{R}^+ $ is the convergence gain </span> </p>
+
+    <p   class="fragment fade-in" data-fragment-index="0" style="text-align: center; font-size: 1.5ch;">$\begin{equation}
+        \begin{bmatrix} 
+        \dot{S}_{h_{i}} \\
+        \dot{S}_{l_{i}} \\
+    
+        \end{bmatrix}= AS =
+        \color{black}{\Omega_{1}}
+        \begin{bmatrix} 
+        \color{blue}{
+        \dot{e}_{h_{i}} \\
+        \dot{e}_{l_{i}} \\
+        
+        } \\ \end{bmatrix}+
+        \color{green}{\Omega_{2}}
+        \begin{bmatrix} 
+        \color{blue}{{e}_{h_{i}} \\
+        {e}_{l_{i}} \\
+      
+      } 
+        \\
+        \end{bmatrix}
+        \end{equation}$</p>
+
+        <p class="fragment fade-in" data-fragment-index="0" style="text-align: left;font-size: 1.8ch;">where: </p>
+        <p class="fragment fade-on" data-fragment-index="0" style="text-align: center; font-size: 1.5ch;"> 
+            $\begin{equation}
+            \begin{cases}
+            \color{black}{\Omega_{1}=diag[a_{h_{i}},a_{l_{i}}]},\\
+            \color{green}{\Omega_{2}}=diag[a_{h_{i}}\color{green}{\lambda_{h_{i}}},a_{l_{i}}\color{green}{\lambda_{l_{i}}}],\\
+            \end{cases}
+            \end{equation}$
+       </p>
+       <div>
+        <div class="footer" style="text-align: left;">
+         <p>
+         Safe and Energy Efficient Decision/Control Architecture for a Formation of Multi-Vehicle System in Dynamic Environment
+        <br>
+        Compiègne, 10-01-2024
+        </p>
+        </div>
+   
+        <div class="footer_images">
+        <div class="row">
+        <img data-src="images/Logo_Heudiasyc.png" height="30">   
+        <img data-src="images/utc.png"  height="30">
+        <img data-src="images/CNRS.png" height="30">
+        </div>
+        </div>
+    </div>  
+</section> 
+
+<section >
+    <h4  style="text-align: left;"> Online reconfiguration gains identification</h4>
+
+
+<p   class="fragment semi-fade-out" data-fragment-index="2" style="text-align: center; font-size: 1.5ch;">
+    $\begin{eqnarray}
+          \ddot{e}_{h_{i}} + (\color{green}{\lambda_{h_{i}}}-\color{blue}{a_{h_{i}}}) \dot{e}_{h_{i}} - \color{blue}{a_{h_{i}}}\color{green}{\lambda_{h_{i}}}e_{h_{i}}&=& 0\\ \nonumber
+          \ddot{e}_{l_{i}} + (\color{green}{\lambda_{l_{i}}}-\color{blue}{a_{l_{i}}}) \dot{e}_{l_{i}} - \color{blue}{a_{l_{i}}}\color{green}{\lambda_{l_{i}}}e_{l_{i}}&=& 0\\ \nonumber
+    \end{eqnarray}$
+</p>
+
+<p class="fragment fade-in-then-semi-out" data-fragment-index="2" style="text-align: left; font-size: 1.5ch;">General solution of 2$^{nd}$ order differential equation: $  \begin{equation}
+    \color{crimson}{x(t) = \alpha_1 e^{\beta_1t} + \alpha_2 e^{\beta_2 t}  } 
+    \end{equation}$ 
+</p>
+ <p class="fragment" data-fragment-index="3" style="text-align: left; font-size: 1.5ch;">Velocity profile generator model: </p> 
+    <p class="fragment" data-fragment-index="3" style="text-align: center; font-size: 1.5ch;">$  \begin{equation}
+         \mathcal{V}(t) = \color{limegreen}{K_1} e^{\color{orange}{a} t} + \color{limegreen}{K_2} e^{\color{orange}{-\lambda} t} + c  
+        \end{equation}$ 
+    </p>
+    <p class="fragment " data-fragment-index="3" style="text-align: left; font-size: 1.5ch;"> $\color{orange}{a}$ and $\color{orange}{\lambda}$ the roots of the differential equation </p> 
+    <p class="fragment " data-fragment-index="3" style="text-align: left; font-size: 1.5ch;"> $\color{limegreen}{K_1}$, $\color{limegreen}{K_2}$ and $c$ $\rightarrow$ initial and final conditions </p> 
+<p class="fragment " data-fragment-index="3" style="text-align: left; font-size: 1.5ch;"> Numerical solver 
+    $\begin{equation}
+    \begin{cases} 
+    X_{i}^{init} \;\text{initial pose of} \; V_i, \\
+    \mathcal{V}_{i}^{init}, \mathcal{V}_{i}^{f} \text{ initial and final velocity}, \\
+    f_{i}^{init}, f_{i}^{end} \text{ initial and final formation coordinates} 
+    \end{cases}
+    \end{equation}$</p>
+
+
+
+    <div>
+        <div class="footer" style="text-align: left;">
+         <p>
+         Safe and Energy Efficient Decision/Control Architecture for a Formation of Multi-Vehicle System in Dynamic Environment
+        <br>
+        Compiègne, 10-01-2024
+        </p>
+        </div>
+   
+        <div class="footer_images">
+        <div class="row">
+        <img data-src="images/Logo_Heudiasyc.png" height="30">   
+        <img data-src="images/utc.png"  height="30">
+        <img data-src="images/CNRS.png" height="30">
+        </div>
+        </div>
+    </div>  
+
+</section> 
+
+
+
+
+
+
+ <section data-auto-animate>
+    <h4 style="text-align: left;">Simulation scenario</h4>
+    <br>
+    <div  style="text-align: left;font-size: 1.5ch;" class="row">
+        <div class="column">
+            <img src="images/FRA-OCS/Final_formation.png" width="800" height="500" alt="Global_Architecture" data-auto-animate>
+
+            
+            <br>
+        </div>
+        <div class="column">
+            <img src="images/FRA-OCS/Initial_formation.png" width="800" height="500" alt="Global_Architecture" data-auto-animate>
+
+
+        </div>
+      </div>
+      <div>
+        <div class="footer" style="text-align: left;">
+         <p>
+         Safe and Energy Efficient Decision/Control Architecture for a Formation of Multi-Vehicle System in Dynamic Environment
+        <br>
+        Compiègne, 10-01-2024
+        </p>
+        </div>
+   
+        <div class="footer_images">
+        <div class="row">
+        <img data-src="images/Logo_Heudiasyc.png" height="30">   
+        <img data-src="images/utc.png"  height="30">
+        <img data-src="images/CNRS.png" height="30">
+        </div>
+        </div>
+    </div>  
+</section>
+
+
+<section style="text-align: center;">
+
+
+    <div >
+        <video muted data-autoplay src="videos/FRA-OCS_sim01.mp4"  width="1200" height="600" data-video-loop></video>
+         <figcaption> <p style="text-align: center;"> <span style="font-size: 0.2in;" > FRA-OCS's simulation video</span></p></figcaption>
+     
+     </div>
+
+   <!-- <iframe data-autoplay width="1000" height="500" src="http://www.youtube.com/embed/o-oxYnM10OQ ?autoplay=1&loop=1&playlist=o-oxYnM10OQ&control=0" frameborder="0" allowfullscreen></iframe>​
+    -->
+    <div>
+        <div class="footer" style="text-align: left;">
+         <p>
+         Safe and Energy Efficient Decision/Control Architecture for a Formation of Multi-Vehicle System in Dynamic Environment
+        <br>
+        Compiègne, 10-01-2024
+        </p>
+        </div>
+   
+        <div class="footer_images">
+        <div class="row">
+        <img data-src="images/Logo_Heudiasyc.png" height="30">   
+        <img data-src="images/utc.png"  height="30">
+        <img data-src="images/CNRS.png" height="30">
+        </div>
+        </div>
+    </div>  
+
+</section>
+    
+
+<section data-auto-animate>
+    <h4 style="text-align: left;">Simulation scenario</h4>
+    <br>
+    <div  style="text-align: left;font-size: 1.5ch;" class="row">
+        <div  style="align-items: center;" class="column">
+            <img src="images/FRA-OCS/Plot2.png" width="550" height="580" data-auto-animate >
+
+            
+            <br>
+        </div>
+        <div class="column">
+            <img src="images/FRA-OCS/Coordinates.png" width="550" height="580"  data-auto-animate>
+
+
+        </div>
+      </div>
+      <div>
+        <div class="footer" style="text-align: left;">
+         <p>
+         Safe and Energy Efficient Decision/Control Architecture for a Formation of Multi-Vehicle System in Dynamic Environment
+        <br>
+        Compiègne, 10-01-2024
+        </p>
+        </div>
+   
+        <div class="footer_images">
+        <div class="row">
+        <img data-src="images/Logo_Heudiasyc.png" height="30">   
+        <img data-src="images/utc.png"  height="30">
+        <img data-src="images/CNRS.png" height="30">
+        </div>
+        </div>
+    </div>  
+
+</section>
+<section >
+    <h4  style="text-align: left;">FRA-OCS evaluation </h4>
+    <p  style="text-align: left;">✔️  <span style="font-size: 1.8ch;">Safe and smooth formal formation reconfiguration</span>  </p>
+    <p  style="text-align: left;">✔️  <span style="font-size: 1.8ch;">An improved flexibility during the reconfiguration</span>  </p>
+    <p  style="text-align: left;">✔️  <span style="font-size: 1.8ch;">Online formation reconfiguration process</span>  </p>
+
+
+    <div>
+        <div class="footer" style="text-align: left;">
+         <p>
+         Safe and Energy Efficient Decision/Control Architecture for a Formation of Multi-Vehicle System in Dynamic Environment
+        <br>
+        Compiègne, 10-01-2024
+        </p>
+        </div>
+   
+        <div class="footer_images">
+        <div class="row">
+        <img data-src="images/Logo_Heudiasyc.png" height="30">   
+        <img data-src="images/utc.png"  height="30">
+        <img data-src="images/CNRS.png" height="30">
+        </div>
+        </div>
+    </div>  
+</section>
+</section> 
+   
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+    
+                
+
+                    
+                
+
+            <section data-name="Multi-behavior decision-making strategy" >
+                <section style="text-align: left;">
+                    <h3>Multi-behavior decision-making strategy</h3>
+                </section>
+
+
+
+
+
+<section>
+
+    <h4 style="text-align: left;">Nominal behavior</h3>
+    
+    <div  style="text-align: left;font-size: 1.5ch;" class="row">
+        <div class="column">
+            
+            
+            <img src="images/Decision/Nominal_behavior.png" width="1250" height="450" alt="Global_Architecture" data-auto-animate>
+
+            
+            
+            <br>
+            
+        
+        </div>
+        <div class="column">
+
+        <p><ul><ol>
+         <li><strong>Highway vehicles:</strong> run at constant velocity </li>
+         <li><strong>Merging vehicles:</strong> 
+
+        
+
+
+        <p style="font-size:2ch ;" class="fragment" data-fragment-index="0">The nominal velocity generator </p>            
+        
+        <!--
+        
+        <p style="font-size:1.5ch ;" class="fragment" data-fragment-index="0">
+        $\begin{equation} \label{eq: SigmoidFunction}
+        \boxed{\mathcal{V} (k) = \mathcal{V}_{m}^{init} + \frac{\mathcal{V}_{m}^{desired}-\mathcal{V}_{m}^{init}}{1-e^{-\color{red}{\alpha^{*}}(k-\color{red}{\beta^{*}})}}\\}
+        \end{equation}$</p>
+
+        <p style="font-size: 1.3ch ;" class="fragment" data-fragment-index="0">
+            $\begin{cases}
+            \mathcal{V}_{m}^{init}: \text{Vehicle's initial velocity} \\
+            \mathcal{V}_{m}^{desired}: \text{Road speed limit} \\ 
+            \color{red}{\alpha^*} \text{Sigmoid's convergence rate}\\
+            \color{red}{\beta^*}  \text{Sigmoid's mid-point}
+            \end{cases}$
+        </p>-->
+
+
+        <p style="font-size:1.5ch ;" class="fragment" data-fragment-index="0">
+            $\begin{equation}
+            \boxed{
+            \begin{aligned}
+                &\min&&{\omega_{1}\frac{TravelTime}{\overline{t}} + \omega_{2}\sum_{k=1}^{I_{N}} \Big(\frac{a(k)}{\overline{a}}\Big)^2}{}{}
+               
+            \end{aligned}}
+            \end{equation}$
+        </p> </li></ol></ul></p>
+        <p style="font-size:1.3ch ;" class="fragment" data-fragment-index="0">
+            $\begin{equation}
+            \begin{aligned}
+                &\textrm{s.t.} &&{-4[m/s^2]\leq a(k)\leq 4[m/s^2]}{,}\; \;{{k\in \{1,I_N\}}} \\
+                & &&{\mathcal{V}(k)\leq \mathcal{V}_{max}}{,}\; \;\; \;\; \;\; \;\; \;\; \;\; \;\; \;\; \;\; \;\; \;\; \;\;{k\in \{1,I_N\}}
+            \end{aligned}
+            \end{equation}$
+        </p>
+
+        <p style="font-size: 1.3ch ;" class="fragment" data-fragment-index="0">
+            $\begin{cases}
+            TravelTime \; \text{the maneuver required time} \\
+            a \; \text{and} \; \mathcal{V} \; \text{vehicle's acceleration and velocity, respectively} 
+            \end{cases}$
+        </p>
+
+        </div>
+      </div>
+
+
+
+      <div>
+        <div class="footer" style="text-align: left;">
+         <p>
+         Safe and Energy Efficient Decision/Control Architecture for a Formation of Multi-Vehicle System in Dynamic Environment
+        <br>
+        Compiègne, 10-01-2024
+        </p>
+        </div>
+   
+        <div class="footer_images">
+        <div class="row">
+        <img data-src="images/Logo_Heudiasyc.png" height="30">   
+        <img data-src="images/utc.png"  height="30">
+        <img data-src="images/CNRS.png" height="30">
+        </div>
+        </div>
+    </div>  
+</section>
+
+
+
+<section style="text-align: center;">
+
+    <div >
+        <br>
+        <video muted data-autoplay src="videos/Nominal Behavior Final_pres.mp4"  width="1100" height="600" data-video-loop></video>
+         <figcaption> <p style="text-align: center;"> <span style="font-size: 0.2in;" > Nominal behavior simulation video</span></p></figcaption>
+     
+     </div>
+    <!--
+    <iframe data-autoplay width="1000" height="500" src="http://www.youtube.com/embed/a388v8451i8?autoplay=1&loop=1&playlist=a388v8451i8&control=0" frameborder="0" allowfullscreen></iframe>​
+-->
+    <div>
+        <div class="footer" style="text-align: left;">
+         <p>
+         Safe and Energy Efficient Decision/Control Architecture for a Formation of Multi-Vehicle System in Dynamic Environment
+        <br>
+        Compiègne, 10-01-2024
+        </p>
+        </div>
+   
+        <div class="footer_images">
+        <div class="row">
+        <img data-src="images/Logo_Heudiasyc.png" height="30">   
+        <img data-src="images/utc.png"  height="30">
+        <img data-src="images/CNRS.png" height="30">
+        </div>
+        </div>
+    </div>  
+
+</section>
+
+
+
+
+<section data-auto-animate>
+    <h3 style="text-align: left;">Simulation scenario</h3>
+    <br>
+    <div  style="text-align: left;font-size: 1.5ch;" class="row">
+        <div  style="align-items: center;" class="column">
+            <img src="images/Decision/nominal/velocity_nominal.png" width="550" height="500" data-auto-animate >
+
+            
+            <br>
+        </div>
+        <div class="column">
+            <img src="images/Decision/nominal/Distances_nominal.png" width="550" height="500"  data-auto-animate>
+
+
+        </div>
+      </div>
+
+      <div>
+        <div class="footer" style="text-align: left;">
+         <p>
+         Safe and Energy Efficient Decision/Control Architecture for a Formation of Multi-Vehicle System in Dynamic Environment
+        <br>
+        Compiègne, 10-01-2024
+        </p>
+        </div>
+   
+        <div class="footer_images">
+        <div class="row">
+        <img data-src="images/Logo_Heudiasyc.png" height="30">   
+        <img data-src="images/utc.png"  height="30">
+        <img data-src="images/CNRS.png" height="30">
+        </div>
+        </div>
+    </div>  
+
+</section>
+
+
+<section style="text-align: center;">
+    <div >
+        <br>
+        <video muted data-autoplay src="videos/Nominal Behavior_collision.mp4"  width="1100" height="600" data-video-loop></video>
+         <figcaption> <p style="text-align: center;"> <span style="font-size: 0.2in;" > Nominal behavior simulation video - collision scenario</span></p></figcaption>
+     
+     </div>
+    <div>
+        <div class="footer" style="text-align: left;">
+         <p>
+         Safe and Energy Efficient Decision/Control Architecture for a Formation of Multi-Vehicle System in Dynamic Environment
+        <br>
+        Compiègne, 10-01-2024
+        </p>
+        </div>
+   
+        <div class="footer_images">
+        <div class="row">
+        <img data-src="images/Logo_Heudiasyc.png" height="30">   
+        <img data-src="images/utc.png"  height="30">
+        <img data-src="images/CNRS.png" height="30">
+        </div>
+        </div>
+    </div>  
+
+</section>
+
+<section>
+
+    <h3 style="text-align: left;">Cooperative behavior</h3>
+    
+    <div  style="text-align: left;font-size: 1.5ch;" class="row">
+        <div class="column">
+            <br>
+            <br>
+            
+            
+            <img src="images/Decision/Cooperative_behavior.png" width="1250" height="450" alt="Global_Architecture" data-auto-animate>
+
+            
+            <br>
+            <br>
+            
+   
+        </div>
+        <div class="column">
+           <p>Based on the nominal behavior prediction: </p>
+           <ul><ol><li>
+            <strong>Safety criterion evaluation</strong>
+           </li>
+           <li>
+            <strong>Negotiation protocol</strong>
+            <ul>
+              a- Potential passing sequences <br>
+              b- Suitable passing sequence
+            </ul>
+           </ol></ul>
+
+           <p><span style="font-size: 2.8ch;" class="green"> Goal: </span> select the <span class="red">passing sequence $sq$</span></p>
+
+           <p> <span class="red">$sq$</span> input of the dynamic formation reconfiguration</p>
+            
+
+        
+
+
+        </div>
+      </div>
+      <div>
+        <div class="footer" style="text-align: left;">
+         <p>
+         Safe and Energy Efficient Decision/Control Architecture for a Formation of Multi-Vehicle System in Dynamic Environment
+        <br>
+        Compiègne, 10-01-2024
+        </p>
+        </div>
+   
+        <div class="footer_images">
+        <div class="row">
+        <img data-src="images/Logo_Heudiasyc.png" height="30">   
+        <img data-src="images/utc.png"  height="30">
+        <img data-src="images/CNRS.png" height="30">
+        </div>
+        </div>
+    </div>  
+</section>
+
+
+
+
+
+<section>
+
+    <h4 style="text-align: left;">Potential passing sequences</h4>
+    
+    <div  style="text-align: left;font-size: 1.5ch;" class="row">
+        <div style="text-align: center;" class="column">
+            
+            <div class="col r-stack">
+                <img class="fragment fade-in-then-out"  data-fragment-index="1" data-src="images/Decision/Cooperative/Negotiation.png" width="400" height="600">
+                <img class="fragment "  data-fragment-index="2" data-src="images/Decision/Cooperative/Negotiation2.png" width="400" height="600">
+
+            </div>
+            
+            
+        </div>
+        <div class="column">
+            <br>
+            <img src="images/Decision/Cooperative/Collision.png" width="600" height="200" alt="Global_Architecture" data-auto-animate>
+            
+            
+            <br>
+            <br>
+            <div class="fragment fade-in-then-semi-out" data-fragment-index="1">
+            <strong>Potential passing sequences</strong>            
+            <p><ul><ol>
+                <li>$sq(0): V_{CP_1}, V_m, V_{hw_2} $</li>
+                <li>$sq(1): V_m,V_{CP_1},V_{hw_2}$   </li>
+                <li>$sq(2): V_{CP_1}, V_{hw_2},V_m $ </li>
+                <hr>
+                <li>$sq(3): V_{CP_{1_{1\rightarrow 2}}}, V_m, V_{hw_2} $</li>
+                <li>$sq(4): V_{CP_1}, V_m, V_{hw_{2_{1\rightarrow 2}}} $</li>
+                </ol></ul></p></div>
+   
+        
+
+
+        </div>
+      </div>
+
+    <div>
+        <div class="footer" style="text-align: left;">
+         <p>
+         Safe and Energy Efficient Decision/Control Architecture for a Formation of Multi-Vehicle System in Dynamic Environment
+        <br>
+        Compiègne, 10-01-2024
+        </p>
+        </div>
+   
+        <div class="footer_images">
+        <div class="row">
+        <img data-src="images/Logo_Heudiasyc.png" height="30">   
+        <img data-src="images/utc.png"  height="30">
+        <img data-src="images/CNRS.png" height="30">
+        </div>
+        </div>
+    </div>  
+</section>
+
+
+
+
+
+
+<section>
+
+    
+    <div  style="text-align: left;font-size: 1.5ch;" class="row">
+        <div  class="column" >
+      <div class="fragment" data-fragment-index="1">
+<br>
+<br>
+
+<br>
+
+        <div class="r-stack">
+              
+            <div class="fragment fade-in-then-out" data-fragment-index="1">
+                <p style="font-size: 2.5ch;">The safety cost $\color{red}{J_{i}^{\tiny{Safe}}}$</p>
+<ul>
+                <li>Non-collision requirement</li></ul>
+
+            </div>
+
+
+            <div class="fragment fade-in-then-out" data-fragment-index="2.5">
+                <p style="font-size: 2.5ch;">The acceleration cost $\color{red}{J_{i}^{\tiny{Acc}}}$</p>
+                <ul>
+                <li> Vehicle dynamic </li>
+                <li> comfort </li></ul> 
+
+
+
+            </div>
+
+
+            <div class="fragment fade-in-then-out" data-fragment-index="3">
+                <p style="font-size: 2.5ch;">The kinetic energy cost $\color{red}{J_{i}^{\tiny{KE}}}$</p>
+<ul><li>
+                Energy efficiency</li></ul>
+
+            </div>
+
+            <div class="fragment fade-in-then-out" data-fragment-index="4">
+                <p style="font-size: 2.5ch;">The non-cooperation cost $\color{red}{J_{i}^{\tiny{NC}}}$</p>
+                <ul><li>
+                Balance cooperation efforts</li></ul>
+
+            </div>
+
+
+            <div>
+            <p class="fragment fade-in-then-out" data-fragment-index="5" style="text-align: left;font-size: 2ch;" > The safety cost $\color{red}{J_{i}^{\tiny{Safe}}}$</p>
+            <p class="fragment fade-in-then-out" data-fragment-index="5" style="text-align: left;font-size: 2ch;" > 
+                $\begin{equation}
+                J_{i}^{Safe} = \frac{\sum_{k=1}^{I_S}\frac{1}{\color{green}{{EucDist\{X_{V_{i}}(k), X_{V_{j}}(k)\}}}^{\forall j \in  {N}, j\neq i}}}{\sum_{k=1}^{I_S}{\frac{1}{d_{Safe}}}} \\
+                 \small{\text{with}} \; d_{safe}\; \small{\text{the safety in-between distance}}
+                \end{equation}$</p>
+            </div>
+
+            <div>
+            <p class="fragment fade-in-then-out" data-fragment-index="6" style="text-align: left;font-size: 2ch;" > The acceleration cost $\color{red}{J_{i}^{\tiny{Acc}}}$</p>
+            <p class="fragment fade-in-then-out" data-fragment-index="6" style="text-align: left;font-size: 1.5ch;" > 
+                $\begin{equation}
+                J_{\substack{ \color{red}{m} }}^{Acc}= \Big\lvert \frac{1}{I_{N}} \sum_{k=1}^{I_{N}} \Big[ \frac{\color{green}{a^{nominal}_{m}(k)}}{\color{blue}{\overline{a^{nominal}_{m}}}}\Big]^2 -   \frac{1}{I_{S}}  \sum_{k=1}^{I_S} \Big[ \frac{\color{crimson}{a^{S}_{m}(k)}}{\color{blue}{\overline{a^{S}_{m}}}}\Big]^2 \Big\rvert, \;  \forall \,\color{red}{ m  \in \mathbb{M}}
+                \end{equation}$</p>
+
+                <p class="fragment fade-in-then-out" data-fragment-index="6" style="text-align: left;font-size: 1.4ch;" > 
+                    $\begin{align}
+                    J_{\substack{ \color{red}{ hw} }}^{Acc} =  \frac{1}{I_{S}}  \sum_{k=1}^{I_S} \Big[ \frac{\color{limegreen}{a^{S}_{hw}(k)}}{\overline{\color{blue}{a^{S}_{hw}}}}\Big]^2 , \; \; \; \forall \, \color{red}{hw  \in \mathbb{H}}
+                \end{align}$</p>
+            </div>
+
+
+
+            <div>
+
+                <p class="fragment fade-in-then-out" data-fragment-index="7" style="text-align: left;font-size: 2ch;" > The kinetic energy cost $\color{red}{J_{i}^{\tiny{KE}}}$</p>
+                <p class="fragment fade-in-then-out" data-fragment-index="7" style="text-align: left;font-size: 1.4ch;" > 
+                    $\begin{equation}\label{eq: kinematicEnegyMergingCost}
+                    J_{\substack{ \color{red}{m }}}^{\small{KE}} = \frac{1}{2} m_{V_{m}} \Big\lvert \frac{1}{I_{N}} \sum_{k=1}^{I_{N}} \Big[ \frac{\color{green}{\mathcal{V}^{nominal}_{m}(k)}}{\color{blue}{\overline{\mathcal{V}^{nominal}_{m}}}}\Big]^2 -   \frac{1}{I_{S}}  \sum_{k=1}^{I_S} \Big[ \frac{\color{crimson}{\mathcal{V}^{S}_m(k)}}{\color{blue}{\overline{\mathcal{V}^{S}_m}}}\Big]^2 \Big\rvert , \;  \forall \; \color{red}{m  \in \mathbb{M}}
+                \end{equation}$</p>
+    
+                    <p class="fragment fade-in-then-out" data-fragment-index="7" style="text-align: left;font-size: 1.4ch;" > 
+                        $\begin{equation} \label{eq: kinematicEnegyHighwayCost}
+                        J_{\substack{\color{red}{ hw }}}^{\small{KE}} =  \frac{1}{2} m_{V_{hw}} \Big(\frac{1}{I_{S}}  \sum_{k=1}^{I_S} \Big[ \frac{\color{limegreen}{\mathcal{V}_{ref}^{S}(k)- \mathcal{V}^{S}_{hw}(k)}} {\color{blue}{\small{max}({\overline{\mathcal{V}_{ref}^{S}}, \overline{\mathcal{V}^{S}_{hw}}})}}\Big]^2\Big) , \; \; \; \forall \; \color{red}{hw  \in \mathbb{H}} \\ \tiny{,}
+                    \end{equation}$</p>
+                </div>
+
+
+                <div>
+
+                    <p class="fragment fade-in-then-out" data-fragment-index="8" style="text-align: left;font-size: 2ch;" > The non-cooperation cost $\color{red}{J_{i}^{\tiny{NC}}}$</p>
+                    
+                    <p class="fragment fade-in-then-out" data-fragment-index="8" style="text-align: left;font-size: 1.5ch;">
+                    
+                        $ \begin{equation} 
+                        \omega_{NC} =  \begin{cases}
+                        0 & \mbox{for}
+                        & J_{NC} < threshold \\ 
+                        \inf & \mbox{for} & J_{NC}  \geq threshold
+                        \end{cases}
+                        \end{equation}$ 
+                    </p>
+                    
+                    <p class="fragment fade-in-then-out" data-fragment-index="8" style="text-align: left;font-size: 1.8ch;" > 
+                        $\begin{equation} \label{eq: non_collaboration cost}
+                        J_{NC}= |{\frac{J_{cooperation}-J_{nominal}}{J_{nominal}}}|
+                    \end{equation}$
+                    </p>
+    
+                    <p class="fragment fade-in-then-out" data-fragment-index="8" style="text-align: left;font-size: 1.6ch;" > 
+                        $
+                        J_{\text {nominal }}=\sum_{k=1}^{I_N} \frac{\color{green}{\mathcal{V}(k)_{\text {nominal }}}}{\color{blue}{\overline{\mathcal{V}}_{\text {nominal }}}}+\sum_{k=1}^{I_N} \frac{\color{orange}{a(k)_{\text {nominal }}}}{\color{blue}{\bar{a}_{\text {nominal }}}}
+                        $
+                    </p>
+        
+                        <p class="fragment fade-in-then-out" data-fragment-index="8" style="text-align: left;font-size: 1.6ch;" > 
+                            $
+                            J_{\text {cooperation }}=\sum_{k=1}^{I_S} \frac{\color{limegreen}{\mathcal{V}(k)_{\text {cooperation }}}}{\color{blue}{\overline{\mathcal{V}}_{\text {cooperation }}}}+\sum_{k=1}^{I_S} \frac{\color{red}{a(k)_{\text {cooperation }}}}{\color{blue}{\bar{a}_{\text {cooperation }}}}
+                            $
+                    </p>
+                    </div>
+    
+
+
+
+                
+
+
+
+                
+                </div>
+        </div>
+    </div>
+
+
+
+        <div class="column">
+            <br>
+            <h4 style="text-align: left;">Suitable passing sequence</h3>
+            
+            
+            <!-- Fragment 0-->
+            <p>Evaluate the potential passing sequences</p>
+            <p style="text-align: center;font-size: 1.5ch;" >
+                $\begin{equation} 
+                \color{red}{\boxed{J_{G}(sq(j))= \sum_{i=1}^{N} \beta_{i} J_i  \\}}  \; \; \end{equation}$
+            </p> 
+                
+             <span style="text-align: left;font-size: 1.5ch;" class="fragment semi-fade-out"  data-fragment-index="0"> 
+               $\begin{equation}\text{with} \; \; 
+               \sum_{i=1}^{N} \beta_i = 1 
+               \\ \beta_i \;\text{the participation weight of the i-th vehicle}
+               \end{equation}$
+             </span>
+    
+            <!-- Fragment 1 -->
+            <p class="fragment fade-in-then-semi-out" data-fragment-index="0" style="font-size: 1.8ch;">The global cost function of the $i-th$ vehicle</p>
+            
+            <div class="r-stack">
+                <p class="fragment" data-fragment-index="0" style="text-align: left;font-size: 1.5ch;"> 
+                
+                    <span class="fragment grow" data-fragment-index="0">
+                        <span class="fragment shrink" data-fragment-index="5">
+                            <span  class="fragment fade-out" data-fragment-index="5"> 
+                    $
+                    J_{\substack{ i }} = \omega_{safe} J_{i}^{\tiny{Safe}} + \omega_{\tiny{Acc}} J_{i}^{Acc} + \omega_{\tiny{KE}}
+                    J^{\tiny{KE}} +\omega_{\tiny{\substack{NC}}}J^{\tiny{NC}}, 
+                    $
+                </span>
+                </span>
+                </span>
+                </p>
+                
+
+
+
+<p class="fragment fade-in-then-out" data-fragment-index="5" style="font-size: 1.335ch;">
+    $
+    J_{\substack{ i }} = \omega_{safe} \underbrace{\color{red}{\Large{J_{i}^{\tiny{Safe}}}}}_{ \Large{\color{red}{safety}}}+ \omega_{\tiny{Acc}} J_{i}^{Acc} + \omega_{\tiny{KE}}
+    J^{\tiny{KE}} +\omega_{\tiny{\substack{NC}}}J^{\tiny{NC}},
+
+
+    $
+</p>
+
+<p class="fragment fade-in-then-out" data-fragment-index="6" style="font-size: 1.335ch;">
+    $
+    J_{\substack{ i }} = \omega_{safe} J_{i}^{\tiny{Safe}}+ \omega_{\tiny{Acc}} \underbrace{\color{red}{\Large{J_{i}^{Acc}}}}_{ \Large{\color{red}{Acceleration}}} + \omega_{\tiny{KE}}
+    J^{\tiny{KE}} +\omega_{\tiny{\substack{NC}}}J^{\tiny{NC}}, 
+    $
+</p>
+
+<p class="fragment fade-in-then-out" data-fragment-index="7" style="font-size: 1.335ch;">
+    $
+    J_{\substack{ i }} = \omega_{safe} J_{i}^{\tiny{Safe}}+ \omega_{\tiny{Acc}} J_{i}^{Acc}  + \omega_{\tiny{KE}}
+    \underbrace{\color{red}{\Large{J^{\tiny{KE}}}}}_{ \Large{\color{red}{Kinetic \; energy}}} +\omega_{\tiny{\substack{NC}}}J^{\tiny{NC}}, 
+    $
+</p>
+
+
+<p class="fragment fade-in-then-out" data-fragment-index="8" style="font-size: 1.335ch;">
+    $
+    J_{\substack{ i }} = \omega_{safe} J_{i}^{\tiny{Safe}} + \omega_{\tiny{Acc}} J_{i}^{Acc} + \omega_{\tiny{KE}}
+    J^{\tiny{KE}} + + \omega_{\tiny{\substack{NC}}} \underbrace{\Large{ \color{red}{J^{\tiny{NC}}}}}_{\Large{\color{red}{Non-cooperation}}}
+    $
+</p>
+
+
+</div>
+
+
+            <!-- 
+            <p class="fragment fade-in-then-semi-out" data-fragment-index="0" style="text-align: center;font-size: 1.5ch;">
+                $ \begin{equation}\omega=\{\omega_{safe}, \omega_{\tiny{Acc}}, \omega_{\tiny{KE}},  \omega_{\tiny{NC}}   \},  \; \;                 \omega_{safe} + \omega_{\tiny{Acc}} + \omega_{\tiny{KE}} =1 
+                \end{equation}$
+
+            </p> 
+            -->
+
+            <p class="fragment fade-in-then-semi-out" data-fragment-index="0" style="text-align: center;font-size: 1.5ch;">
+                <span class="fragment grow" data-fragment-index="0">
+                    <span class="fragment shrink" data-fragment-index="1">
+                        $\omega_{safe} + \omega_{Acc} + \omega_{KE}=1$ 
+                        $\omega_{safe}, \omega_{\tiny{Acc}} \; \text{and} \; \omega_{\tiny{KE}} \; \small{\text{safety, acceleration }}  \small{\text{and kinetic energy, respectively}}$
+
+            </span>
+            </span>
+            </p>
+           
+
+
+        
+
+
+
+
+   
+        
+
+
+        </div>
+      </div>
+
+      <div>
+        <div class="footer" style="text-align: left;">
+         <p>
+         Safe and Energy Efficient Decision/Control Architecture for a Formation of Multi-Vehicle System in Dynamic Environment
+        <br>
+        Compiègne, 10-01-2024
+        </p>
+        </div>
+   
+        <div class="footer_images">
+        <div class="row">
+        <img data-src="images/Logo_Heudiasyc.png" height="30">   
+        <img data-src="images/utc.png"  height="30">
+        <img data-src="images/CNRS.png" height="30">
+        </div>
+        </div>
+    </div>  
+      
+</section>
+
+
+
+
+
+
+
+<section>
+<h4 style="text-align: left;"> Simulation scenario: scenario 1/2  </h4>
+
+<br>
+<div class="divide">
+<div class="west">
+    <div class="col r-stack">
+    <img data-src="images\Decision\Cooperative\scenario1\Fromation_shape.png " width="850" height="450">
+   
+</div>
+
+</div>
+
+<div class="east"> 
+    
+<div style="text-align: center;">
+    <style type="text/css">
+        .tg  {border-collapse:collapse;border-spacing:0;}
+        .tg td{border-color:black;border-style:solid;border-width:2.0px;font-family:Arial, sans-serif;font-size:medium; 
+          overflow:hidden;padding:10px 5px;word-break:normal;}
+        .tg th{border-color:black;border-style:solid;border-width:2.0px;font-family:Arial, sans-serif;font-size:medium;
+          font-weight:normal;overflow:hidden;padding:10px 5px;word-break:normal;}
+        .tg .tg-c3ow{border-color:inherit;text-align:center;vertical-align:top}
+        .tg .tg-rvyq{border-color:inherit;font-style:italic;font-weight:bold;text-align:center;vertical-align:top}
+        </style>
+        <table class="tg">
+        <thead>
+          <tr>
+            <th class="tg-c3ow" style="font-size: small;">$sq$</th>
+            <th class="tg-c3ow" colspan="4" style="font-size: small;">$V_{hw_1},V_{hw_2},V_{hw_3},V_{m}$</th>
+            <th class="tg-c3ow" colspan="4"style="font-size: small;">$V_{hw_1},V_{hw_2},V_{m},V_{hw_3}$</th>
+          </tr>
+        </thead>
+        <tbody>
+          <tr>
+            <td class="tg-c3ow" style="font-size: small;">$J_G$</td>
+            <td class="tg-rvyq" colspan="4" style="font-size: small;"><span class="red">0.116</span></td>
+            <td class="tg-c3ow" colspan="4" style="font-size: small;">0.164</td>
+          </tr>
+          <tr>
+            <td class="tg-c3ow" style="font-size: small;">id</td>
+            <td class="tg-c3ow" style="font-size: small;">$hw_1$</td>
+            <td class="tg-c3ow" style="font-size: small;">$hw_2$</td>
+            <td class="tg-c3ow" style="font-size: small;">$m$</td>
+            <td class="tg-c3ow" style="font-size: small;">$hw_3$</td>
+            <td class="tg-c3ow" style="font-size: small;">$hw_1$</td>
+            <td class="tg-c3ow" style="font-size: small;">$hw_2$</td>
+            <td class="tg-c3ow" style="font-size: small;">$m$</td>
+            <td class="tg-c3ow" style="font-size: small;">$hw_3$</td>
+          </tr>
+          <tr>
+            <td class="tg-c3ow"style="font-size: small;">$J^{safe}$</td>
+            <td class="tg-c3ow"style="font-size: small;">0.070</td>
+            <td class="tg-c3ow"style="font-size: small;">0.088</td>
+            <td class="tg-c3ow"style="font-size: small;">0.105</td>
+            <td class="tg-c3ow"style="font-size: small;">0.103</td>
+            <td class="tg-c3ow"style="font-size: small;">0.087</td>
+            <td class="tg-c3ow"style="font-size: small;">0.089</td>
+            <td class="tg-c3ow"style="font-size: small;">0.145</td>
+            <td class="tg-c3ow"style="font-size: small;">0.103</td>
+          </tr>
+          
+            <td class="tg-c3ow"style="font-size: small;">$J^{acc}$</td>
+            <td class="tg-c3ow"style="font-size: small;">0</td>
+            <td class="tg-c3ow"style="font-size: small;">0</td>
+            <td class="tg-c3ow"style="font-size: small;">0.129</td>
+            <td class="tg-c3ow"style="font-size: small;">0.057</td>
+            <td class="tg-c3ow"style="font-size: small;">0</td>
+            <td class="tg-c3ow"style="font-size: small;">0</td>
+            <td class="tg-c3ow"style="font-size: small;">0.118</td>
+            <td class="tg-c3ow"style="font-size: small;">0.097</td>
+          </tr>
+          <tr>
+            <td class="tg-c3ow"style="font-size: small;">$J^{KE}$</td>
+            <td class="tg-c3ow"style="font-size: small;">0</td>
+            <td class="tg-c3ow"style="font-size: small;">0</td>
+            <td class="tg-c3ow"style="font-size: small;">0.057</td>
+            <td class="tg-c3ow"style="font-size: small;">0.115</td>
+            <td class="tg-c3ow"style="font-size: small;">0</td>
+            <td class="tg-c3ow"style="font-size: small;">0</td>
+            <td class="tg-c3ow"style="font-size: small;">0.140</td>
+            <td class="tg-c3ow"style="font-size: small;">0.150</td>
+          </tr>
+          <tr></tr>
+        </tbody>
+        </table>
+</div>
+<p style="font-size: 0.15in;">Scenario 1/2: Numerical results of the cooperation behavior</p>
+</div>
+
+</div>
+
+<div>
+    <div class="footer" style="text-align: left;">
+     <p>
+     Safe and Energy Efficient Decision/Control Architecture for a Formation of Multi-Vehicle System in Dynamic Environment
+    <br>
+    Compiègne, 10-01-2024
+    </p>
+    </div>
+
+    <div class="footer_images">
+    <div class="row">
+    <img data-src="images/Logo_Heudiasyc.png" height="30">   
+    <img data-src="images/utc.png"  height="30">
+    <img data-src="images/CNRS.png" height="30">
+    </div>
+    </div>
+</div>  
+</section>
+
+
+<section style="text-align: center;">
+
+<div >
+        <br>
+        <video muted data-autoplay src="videos/Cooperative_video (online-video-cutter.com).mp4"  width="1100" height="600" data-video-loop></video>
+         <figcaption> <p style="text-align: center;"> <span style="font-size: 0.2in;" > Scenario 1/2: Cooperative behavior</span></p></figcaption>
+     
+     </div>
+    <div>
+        <div class="footer" style="text-align: left;">
+         <p>
+         Safe and Energy Efficient Decision/Control Architecture for a Formation of Multi-Vehicle System in Dynamic Environment
+        <br>
+        Compiègne, 10-01-2024
+        </p>
+        </div>
+   
+        <div class="footer_images">
+        <div class="row">
+        <img data-src="images/Logo_Heudiasyc.png" height="30">   
+        <img data-src="images/utc.png"  height="30">
+        <img data-src="images/CNRS.png" height="30">
+        </div>
+        </div>
+    </div>  
+</section>
+
+
+<section data-auto-animate>
+    <h4 style="text-align: left;">Simulation scenario (1/2)</h4>
+    <div  style="text-align: left;font-size: 1.5ch;" class="row">
+        <div  style="align-items: center;" class="column">
+            <br>
+            <img src="images/Decision/Cooperative/scenario1/Velocity.png" width="550" height="500" data-auto-animate >
+
+            
+            <br>
+        </div>
+        <div class="column">
+            <br>
+            <img src="images/Decision/Cooperative/scenario1/Distances.png" width="800" height="580"  data-auto-animate>
+
+
+        </div>
+      </div>
+      <div>
+        <div class="footer" style="text-align: left;">
+         <p>
+         Safe and Energy Efficient Decision/Control Architecture for a Formation of Multi-Vehicle System in Dynamic Environment
+        <br>
+        Compiègne, 10-01-2024
+        </p>
+        </div>
+   
+        <div class="footer_images">
+        <div class="row">
+        <img data-src="images/Logo_Heudiasyc.png" height="30">   
+        <img data-src="images/utc.png"  height="30">
+        <img data-src="images/CNRS.png" height="30">
+        </div>
+        </div>
+    </div>  
+</section>
+
+
+
+<section>
+    <h4 style="text-align: left;"> Simulation scenario: scenario 2/2  </h4>
+    
+    <br>
+    <div class="divide">
+    <div class="west">
+        <div class="col r-stack">
+        <img data-src="images\Decision\Cooperative\scenario2\Formation_Reconfiguration_Scenario2.png " width="850" height="450">
+       
+    </div>
+    
+    </div>
+    
+    <div class="east_custom"> 
+        <div style="text-align: center;">
+            <style type="text/css">
+                .tg  {border-collapse:collapse;border-spacing:0;}
+                .tg td{border-color:black;border-style:solid;border-width:2.0px;font-family:Arial, sans-serif;font-size:16px;
+                  overflow:hidden;padding:10px 5px;word-break:normal;}
+                .tg th{border-color:black;border-style:solid;border-width:2.0px;font-family:Arial, sans-serif;font-size:16px;
+                  font-weight:normal;overflow:hidden;padding:10px 5px;word-break:normal;}
+                .tg .tg-c3ow{border-color:inherit;text-align:center;vertical-align:top}
+                .tg .tg-rvyq{border-color:inherit;font-style:italic;font-weight:bold;text-align:center;vertical-align:top}
+                </style>
+                <table class="tg">
+                <thead>
+                  <tr>
+                    <th class="tg-c3ow">$sq$</th>
+                    <th class="tg-c3ow" colspan="4"style="font-size: small;">$V_{hw_1},V_{m},V_{hw_2},V_{hw_3}$</th>
+                    <th class="tg-c3ow" colspan="4"style="font-size: small;">$V_{hw_1},V_{hw_2},V_{m},V_{hw_3}$</th>
+                  </tr>
+                </thead>
+                <tbody>
+                  <tr>
+                    <td class="tg-c3ow"style="font-size: small;">$J_G$</td>
+                    <td class="tg-c3ow" colspan="4" style="font-size: small;">0.196</td>
+                    <td class="tg-rvyq" colspan="4"style="font-size: small;"> <span class="blue">0.181</span></td>
+                  </tr>
+                  <tr>
+                    <td class="tg-c3ow"style="font-size: small;">id</td>
+                    <td class="tg-c3ow"style="font-size: small;">$hw_1$</td>
+                    <td class="tg-c3ow"style="font-size: small;">$m$</td>
+                    <td class="tg-c3ow"style="font-size: small;">$hw_2$</td>
+                    <td class="tg-c3ow"style="font-size: small;">$hw_3$</td>
+                    <td class="tg-c3ow"style="font-size: small;">$hw_1$</td>
+                    <td class="tg-c3ow"style="font-size: small;">$m$</td>
+                    <td class="tg-c3ow"style="font-size: small;">$hw_2$</td>
+                    <td class="tg-c3ow"style="font-size: small;">$hw_3$</td>
+                  </tr>
+                  <tr>
+                    <td class="tg-c3ow"style="font-size: small;">$J^{safe}$</td>
+                    <td class="tg-c3ow"style="font-size: small;">0.125</td>
+                    <td class="tg-c3ow"style="font-size: small;">0.15</td>
+                    <td class="tg-c3ow"style="font-size: small;">0.103</td>
+                    <td class="tg-c3ow"style="font-size: small;">0.066</td>
+                    <td class="tg-c3ow"style="font-size: small;">0.109</td>
+                    <td class="tg-c3ow"style="font-size: small;">0.25</td>
+                    <td class="tg-c3ow"style="font-size: small;">0.227</td>
+                    <td class="tg-c3ow"style="font-size: small;">0.063</td>
+                  </tr>
+                  
+                    <td class="tg-c3ow"style="font-size: small;">$J^{acc}$</td>
+                    <td class="tg-c3ow"style="font-size: small;">0</td>
+                    <td class="tg-c3ow"style="font-size: small;">0.11</td>
+                    <td class="tg-c3ow"style="font-size: small;">0.047</td>
+                    <td class="tg-c3ow"style="font-size: small;">0.063</td>
+                    <td class="tg-c3ow"style="font-size: small;">0</td>
+                    <td class="tg-c3ow"style="font-size: small;">0.335</td>
+                    <td class="tg-c3ow"style="font-size: small;">0.025</td>
+                    <td class="tg-c3ow"style="font-size: small;">0.035</td>
+                  </tr>
+                  <tr>
+                    <td class="tg-c3ow"style="font-size: small;">$J^{KE}$</td>
+                    <td class="tg-c3ow"style="font-size: small;">0.127</td>
+                    <td class="tg-c3ow"style="font-size: small;">0.586</td>
+                    <td class="tg-c3ow"style="font-size: small;">0.292</td>
+                    <td class="tg-c3ow"style="font-size: small;">0.292</td>
+                    <td class="tg-c3ow"style="font-size: small;">0.127</td>
+                    <td class="tg-c3ow"style="font-size: small;">0.102</td>
+                    <td class="tg-c3ow"style="font-size: small;">0.11</td>
+                    <td class="tg-c3ow"style="font-size: small;">0.147</td>
+                  </tr>
+                  <tr></tr>
+                </tbody>
+                </table>
+        </div>  
+        <p style="font-size: 0.15in;">Scenario 2/2: Numerical results of the cooperation behavior before $\color{red}{t=8s}$</p>
+
+        <br> 
+        <div style="text-align: center;">
+            <style type="text/css">
+                .tg  {border-collapse:collapse;border-spacing:0;}
+                .tg td{border-color:black;border-style:solid;border-width:2.0px;font-family:Arial, sans-serif;font-size:12px;
+                  overflow:hidden;padding:10px 5px;word-break:normal;}
+                .tg th{border-color:black;border-style:solid;border-width:2.0px;font-family:Arial, sans-serif;font-size:12px;
+                  font-weight:normal;overflow:hidden;padding:10px 5px;word-break:normal;}
+                .tg .tg-c3ow{border-color:inherit;text-align:center;vertical-align:top}
+                .tg .tg-rvyq{border-color:inherit;font-style:italic;font-weight:bold;text-align:center;vertical-align:top}
+                </style>
+               <table class="tg">
+                <thead>
+                  <tr>
+                    <th class="tg-c3ow"style="font-size: small;">$sq$</th>
+                    <th class="tg-c3ow" colspan="5"style="font-size: small;">$V_{hw_1},V_{hw_2},V_m,V_{hw_4}, V_{hw_3}$</th>
+                    <th class="tg-c3ow" colspan="5"style="font-size: small;">$V_{hw_1},V_{hw_{2_{1\rightarrow 2}}},V_m,V_{hw_4}, V_{hw_3}$</th>
+                  </tr>
+                </thead>
+                <tbody>
+                  <tr>
+                    <td class="tg-c3ow"style="font-size: small;">$J_G$</td>
+                    <td class="tg-c3ow" colspan="5"style="font-size: small;">0.267</td>
+                    <td class="tg-rvyq" colspan="5"style="font-size: small;"> <span class="blue">0.242</span></td>
+                  </tr>
+                  <tr>
+                    <td class="tg-c3ow">$id$</td>
+                    <td class="tg-c3ow">1</td>
+                    <td class="tg-c3ow">2</td>
+                    <td class="tg-c3ow">3</td>
+                    <td class="tg-c3ow">4</td>
+                    <td class="tg-0pky">5</td>
+                    <td class="tg-c3ow">1</td>
+                    <td class="tg-c3ow">2</td>
+                    <td class="tg-c3ow">3</td>
+                    <td class="tg-c3ow">4</td>
+                    <td class="tg-0pky">5</td>
+                  </tr>
+                  <tr>
+                    <td class="tg-c3ow">$J^{safe}$</td>
+                    <td class="tg-c3ow">0.104</td>
+                    <td class="tg-c3ow">0.358</td>
+                    <td class="tg-c3ow">0.227</td>
+                    <td class="tg-c3ow">0.085</td>
+                    <td class="tg-0pky">0.011</td>
+                    <td class="tg-c3ow">0.101</td>
+                    <td class="tg-c3ow">0.185</td>
+                    <td class="tg-c3ow">0.129</td>
+                    <td class="tg-c3ow">0.106</td>
+                    <td class="tg-0pky">0.017</td>
+                  </tr>
+                  <tr>
+                    <td class="tg-c3ow">$J^{acc}$</td>
+                    <td class="tg-c3ow">0</td>
+                    <td class="tg-c3ow">0.11</td>
+                    <td class="tg-c3ow">0.135</td>
+                    <td class="tg-c3ow">0.035</td>
+                    <td class="tg-0pky">0.041</td>
+                    <td class="tg-c3ow">0</td>
+                    <td class="tg-c3ow">0.156</td>
+                    <td class="tg-c3ow">0.089</td>
+                    <td class="tg-c3ow">0.031</td>
+                    <td class="tg-0pky">0.152</td>
+                  </tr>
+                  <tr>
+                    <td class="tg-c3ow">$J^{KE}$</td>
+                    <td class="tg-c3ow">0.127</td>
+                    <td class="tg-c3ow">0.402</td>
+                    <td class="tg-c3ow">0.188</td>
+                    <td class="tg-c3ow">0.147</td>
+                    <td class="tg-0pky">0.152</td>
+                    <td class="tg-c3ow">0.127</td>
+                    <td class="tg-c3ow">0.262</td>
+                    <td class="tg-c3ow">0.136</td>
+                    <td class="tg-c3ow">0.153</td>
+                    <td class="tg-0pky">0.148</td>
+                  </tr>
+                  <tr></tr>
+                </tbody>
+                </table>
+        </div> 
+        <p style="font-size: 0.15in;">Scenario 2/2: Numerical results of the cooperation behavior after $\color{red}{t=8s}$</p>
+
+    </div>
+    
+    </div>
+
+    <div>
+        <div class="footer" style="text-align: left;">
+         <p>
+         Safe and Energy Efficient Decision/Control Architecture for a Formation of Multi-Vehicle System in Dynamic Environment
+        <br>
+        Compiègne, 10-01-2024
+        </p>
+        </div>
+   
+        <div class="footer_images">
+        <div class="row">
+        <img data-src="images/Logo_Heudiasyc.png" height="30">   
+        <img data-src="images/utc.png"  height="30">
+        <img data-src="images/CNRS.png" height="30">
+        </div>
+        </div>
+    </div>  
+    </section>
+    
+    
+    <section style="text-align: center;">
+
+    
+        <div >
+            <br>
+            <video muted data-autoplay src="videos/S2 (online-video-cutter.com).mp4"  width="1100" height="600" data-video-loop></video>
+             <figcaption> <p style="text-align: center;"> <span style="font-size: 0.2in;" > Scenario 2/2: Cooperative behavior</span></p></figcaption>
+         
+         </div>    
+    <div>
+        <div class="footer" style="text-align: left;">
+         <p>
+         Safe and Energy Efficient Decision/Control Architecture for a Formation of Multi-Vehicle System in Dynamic Environment
+        <br>
+        Compiègne, 10-01-2024
+        </p>
+        </div>
+   
+        <div class="footer_images">
+        <div class="row">
+        <img data-src="images/Logo_Heudiasyc.png" height="30">   
+        <img data-src="images/utc.png"  height="30">
+        <img data-src="images/CNRS.png" height="30">
+        </div>
+        </div>
+    </div>  
+
+    </section>
+    
+    
+    <section data-auto-animate>
+        <h4 style="text-align: left;">Simulation scenario (2/2)</h4>
+        <div  style="text-align: left;font-size: 1.5ch;" class="row">
+            <div  style="align-items: center;" class="column">
+                <br>
+                <img src="\images\Decision\Cooperative\scenario2\distances.png" width="550" height="580" data-auto-animate >
+    
+                
+                <br>
+            </div>
+            <div class="column">
+                <br>
+                <img src="\images\Decision\Cooperative\scenario2\Scenario2.png" width="550" height="580"  data-auto-animate>
+    
+    
+            </div>
+          </div>
+          <div>
+            <div class="footer" style="text-align: left;">
+             <p>
+             Safe and Energy Efficient Decision/Control Architecture for a Formation of Multi-Vehicle System in Dynamic Environment
+            <br>
+            Compiègne, 10-01-2024
+            </p>
+            </div>
+       
+            <div class="footer_images">
+            <div class="row">
+            <img data-src="images/Logo_Heudiasyc.png" height="30">   
+            <img data-src="images/utc.png"  height="30">
+            <img data-src="images/CNRS.png" height="30">
+            </div>
+            </div>
+        </div>   
+    
+    
+        </section>
+
+
+
+
+
+
+
+
+</section>
+
+
+
+
+
+
+
+
+
+
+
+            <section data-name="Conclusions & perspectives" >
+                <section data-auto-animate style="text-align: left;">
+                    <h3>Conclusions & Perspectives</h3>
+                </section>
+                
+                <section data-auto-animate>
+                    <h4 style="text-align: left;">Conclusions</h4>
+
+
+                    <P class="fragment semi-fade-out" data-fragment-index="2" > <span class="fragment shrink" data-fragment-index="0"> <span class="black">Cooperative multi-controller architecture </span> </span> 
+                        
+                         <span class="fragment fade-in" data-fragment-index="0"> <span  class="fragment fade-in" data-fragment-index="0" style="font-size: 0.3in;">for</span> <span class="fragment shrink" data-fragment-index="1"> <span class="black">on-ramp merging on highway</span></span></span> <br><span class="fragment fade-in" data-fragment-index="1" style="font-size: 0.3in;"> of a</span> <span  class="fragment fade-in" data-fragment-index="1"> <span class="fragment shrink" data-fragment-index="2"> <span class="black">formation of multi-vehicle systems</span></span></span> </P>
+                    <ul>
+                        <p style="font-size: 0.3in;" class="fragment fade-in" data-fragment-index="3"> <span class="fragment semi-fade-out" data-fragment-index="6">Multi-behavioral decision-making strategy → <span class="blue">Overarching/individual goals</span></span></p>
+                            <ul class="fragment semi-fade-out" data-fragment-index="6">
+                                <ol style="font-size: 0.3in" class="fragment fade-in" data-fragment-index="4"> 
+                                    <span class="fragment semi-fade-out" data-fragment-index="5">
+                                    1- Nominal behavior
+                                    </span>
+                                </ol> 
+                                <ol style="font-size: 0.3in" class="fragment fade-in" data-fragment-index="5">
+                                2- Cooperative behavior
+                                <ul>
+                                <ol>
+                                    2.1- Formalization of the MVS cooperation
+                                </ol>
+                                <ol>
+                                    2.2- Safe and Energy efficient passing sequence
+                                </ol>
+
+                                </ul>
+                                </ol>
+                             </ul>
+                       
+                        
+                               <p style="font-size: 0.3in;" class="fragment fade-in" data-fragment-index="6"> <span class="fragment semi-fade-out" data-fragment-index="10">Dynamic formation reconfiguration → <span class="blue">Passing sequence to MVS dynamics</span></span></p>
+                                   <ul>
+                                    
+                                       <ol style="font-size: 0.3in" class="fragment fade-in" data-fragment-index="7"> 
+                                        <span class="fragment semi-fade-out" data-fragment-index="8" >
+                                        1- Constrained Optimal Reconfiguration Matrix (CORM)
+                                       </span>
+                                       </ol>
+                                       <ol style="font-size: 0.3in" class="fragment fade-in" data-fragment-index="8">
+                                        <span style="font-size: 0.3in" class="fragment semi-fade-out" data-fragment-index="9">
+                                        2- Extended Constrained Optimal Reconfiguration Matrix (E-CORM)
+                                        </span>
+                                       </ol>
+                                       <ol style="font-size: 0.3in" class="fragment fade-in" data-fragment-index="9">
+                                        3- Formation Reconfiguration Approach based on an Online Control Strategy (FRA-OCS)
+                                       </ol>
+                                       
+
+                                       
+
+
+
+                    <div class="footer">
+                        <p>
+                        Safe and Energy Efficient Decision/Control Architecture for a Formation of Multi-Vehicle System in Dynamic Environment
+                        <br>
+                        Compiègne, 10-01-2024
+                        </p>
+                     
+                    </div>
+
+                    <div class="footer_images">
+                       <div class="row">
+                        <img data-src="images/Logo_Heudiasyc.png" height="30">   
+                        <img data-src="images/utc.png"  height="30">
+                        <img data-src="images/CNRS.png" height="30">
+                       </div>
+                     
+                    </div>
+
+                    </ul>
+                </section>
+                
+
+                <section data-auto-animate>
+                    <h4 style="text-align: left;">Perspectives</h4>
+                    <div style="font-size: 0.3in;">
+                    <ul>
+                        <li class="fragment semi-fade-out" data-fragment-index="2">Robustness
+                            <ul>
+                                <span class="fragment fade-in" data-fragment-index="0">
+                                <span>➡️Uncertainty</span> 
+                                <br>
+                                <span>➡️Communication issues: delays, packages losses</span>
+                                <br>
+                               </span>
+
+                               <span class="fragment fade-in" data-fragment-index="1">
+                                <span>💡Risk assessment and management level</span>
+                                <br>
+                                <span>💡Fail safe maneuvers</span>
+                               </span>
+
+
+
+                            </ul>
+                        </li>
+
+                        <span class="fragment semi-fade-out" data-fragment-index="3">
+                        <li class="fragment fade-in" data-fragment-index="2">Generecity
+                            <ul>
+                                <span> - Multi-lane Cooperative Adaptive Cruise Control</span> 
+                                <br>
+                                <span> - Intersection crossing </span>               
+                            </ul>
+                        </li>
+                        </span>
+
+                        <span class="fragment fade-in" data-fragment-index="3"><li> Further</li></span>
+                            <ul >
+                                <span class="fragment semi-fade-out" data-fragment-index="4">
+                                <span class="fragment fade-in" data-fragment-index="3"> - Improve the evaluation metrics</span> 
+                                <br>
+                                <ul>
+                                    <span class="fragment fade-in" data-fragment-index="3">💡Extended Time To Collision (ETTC)</span>
+                                    <br>
+                                    <span class="fragment fade-in" data-fragment-index="3">💡Enhanced energy comsumption estimator</span>
+
+
+                                </ul></span>
+                                <span class="fragment fade-in" data-fragment-index="4"> - Enhanced simulation and experimentation </span>               
+                            </ul>
+                        
+                        
+               
+                    </ul>
+                </div>
+                    
+                    <div class="footer" style="text-align: left;">
+                        <p>
+                        Safe and Energy Efficient Decision/Control Architecture for a Formation of Multi-Vehicle System in Dynamic Environment
+                        <br>
+                        Compiègne, 10-01-2024
+                        </p>
+                     
+                    </div>
+
+                    <div class="footer_images">
+                       <div class="row">
+                        <img data-src="images/Logo_Heudiasyc.png" height="30">   
+                        <img data-src="images/utc.png"  height="30">
+                        <img data-src="images/CNRS.png" height="30">
+                       </div>
+                     
+                    </div>
+                </section>
+
+                <section  data-visibility="uncounted">
+
+                    <p style="font-size: 1.5in;">Many thanks</p>
+
+                    <div class="footer" style="text-align: left;">
+                        <p>
+                        Safe and Energy Efficient Decision/Control Architecture for a Formation of Multi-Vehicle System in Dynamic Environment
+                        <br>
+                        Compiègne, 10-01-2024
+                        </p>
+                     
+                    </div>
+
+                    <div class="footer_images">
+                       <div class="row">
+                        <img data-src="images/Logo_Heudiasyc.png" height="30">   
+                        <img data-src="images/utc.png"  height="30">
+                        <img data-src="images/CNRS.png" height="30">
+                       </div>
+                     
+                    </div>
+                </section>
+
+                <section  data-visibility="uncounted" style="text-align: left;">
+
+
+                    <h4>List of publications</h4>    
+                    <p>International congress with proceedings
+                    </p>   
+                    
+                    <ul style="font-size: 0.2in;">
+                      <li>[ITSC’23] Lyes Saidi, Reine Talj and Lounis Adouane, On-ramp Merging on Highway for Cooperative Automated Vehicles based on an Online Reconfigurable Formation Control Approach. IEEE International Conference on Intelligent Transportation Systems, 24th-28th September 2023, In Bilbao, Spain.
+                    </li>
+
+                    <li>[MMAR’23] Lyes Saidi, Lounis Adouane and Reine Talj. Altruistic Coordination
+                        Strategy for On-Ramp Merging on Highway of a Formation of Cooperative Automated Vehicles. International Conference on Methods and Models in Automation
+                        and Robotics, 22th-27th August 2023, In Międzyzdroje, Poland.</li>
+
+                    <li>[ITSC’22] Lyes Saidi, Lounis Adouane and Reine Talj, CORM: Constrained Optimal Reconfiguration Matrix for Safe On-Ramp Cooperative Merging of Automated
+                            Vehicles. IEEE International Conference on Intelligent Transportation Systems,
+                            from 18th September to 18th October 2022, In Macau, China.
+                            </li>
+                    </ul>
+                    <p>International congress
+                    </p>   
+                    
+                    <ul style="font-size: 0.2in;">
+                    
+
+                    <li>[VAMS’23] Lyes Saidi, Lounis Adouane and Reine Talj, Cooperative DecisionMaking for Safe On-Ramp Merging on Highway for Connected Automated Vehicles. International Symposium on the Verification of Autonomous Mobile Systems,
+                        9th-10th March 2023, In Paris, France.</li>
+
+                 
+                    </ul>
+
+                    <p>National congress</p>   
+                    
+                    <ul style="font-size: 0.2in;">
+                    
+
+                        <li>[CT ATT’22] Lyes Saidi, Lounis Adouane and Reine Talj, Safe and Smooth Onramp Merging on Highway Strategy for Cooperative Automated Vehicles. Journées
+                            du Comité Technique Automatique et Transport Terrestre, 5th-6th April 2022, In
+                            Valenciennes, France.</li>
+    
+                        <li>[JJCR21] Lyes Saidi, Lounis Adouane and Reine Talj, Toward a Robust and Safe
+                                Cooperative Highway Navigation of Multi-Vehicles Systems. Journée des Jeunes
+                                Chercheurs en Robotique, 12th October 2021, In Paris, France.</li>
+    
+                     
+                 
+                    </ul>
+                    <div class="footer" style="text-align: left;">
+                        <p>
+                        Safe and Energy Efficient Decision/Control Architecture for a Formation of Multi-Vehicle System in Dynamic Environment
+                        <br>
+                        Compiègne, 10-01-2024
+                        </p>
+                     
+                    </div>
+
+                    <div class="footer_images">
+                       <div class="row">
+                        <img data-src="images/Logo_Heudiasyc.png" height="30">   
+                        <img data-src="images/utc.png"  height="30">
+                        <img data-src="images/CNRS.png" height="30">
+                       </div>
+                     
+                    </div>
+
+
+</section>
+
+
+
+    
+ <section data-visibility="uncounted">
+    <h4 > Online reconfiguration gains identification</h4>
+
+
+
+
+
+ <p class="fragment fade-in-then-semi-out" data-fragment-index="1" style="text-align: left; font-size: 1.5ch;">1- Take into account the anticipation distance </p> 
+    <p class="fragment " data-fragment-index="1"  data-fragment-index="3" style="text-align: center; font-size: 1.5ch;">$  \begin{equation} \label{eq:ConvergenceModelAcceleration}
+        \boxed{\dot{\mathcal{V}}(\color{red}{t_{max}}) = \color{orange}{a}\color{limegreen}{K_1} e^{\color{orange}{a} \color{red}{t_{max}} } -\color{orange}{\lambda}  \color{limegreen}{K_2} e^{-\color{orange}{\lambda} \color{red}{t_{max}} }  = 0}
+    \end{equation}$ 
+    </p>
+
+    <p class="fragment fade-in-then-semi-out " data-fragment-index="1" style="text-align: left; font-size: 1.5ch;"> with $\mathcal{V}(\color{red}{t_{max}})=\mathcal{V}_{max}$ and $a(\color{red}{t_{max}})=0$ </p> 
+
+
+    <p class="fragment fade-in-then-semi-out" data-fragment-index="2" style="text-align: left; font-size: 1.5ch;">2- Take into account the initial & final velocity </p> 
+    
+    <p class="fragment fade-in-then-semi-out " data-fragment-index="2" style="text-align: left; font-size: 1.5ch;"> <span class="blue">The initial velocity</span> $\rightarrow$ $c= \mathcal{V}^{init}-\color{limegreen}{K_1}-\color{limegreen}{K_2}$ & <span class="blue">the final velocity</span>  $\rightarrow$ $\mathcal{V}(t=t_f)=\mathcal{V}^{end}$</p> 
+    
+    <p  class="fragment " data-fragment-index="2" data-fragment-index="2" style="text-align: center; font-size: 1.5ch;">  $\begin{equation} 
+        \boxed{\color{limegreen}{K_1} e^{\color{orange}{a} \color{red}{t_{f}} } + \color{limegreen}{K_2} e^{\color{orange}{-\lambda}\color{red}{t_{f}}  }  - \color{limegreen}{K_1} -\color{limegreen}{K_2}  + \color{red}{\mathcal{V}^{init}} -\color{red}{\mathcal{V}^{end}}= 0}
+   \end{equation}$ 
+    </p>
+  
+    <p class="fragment fade-in-then-out " data-fragment-index="3"></p>
+    <div>
+        <div class="footer" style="text-align: left;">
+         <p>
+         Safe and Energy Efficient Decision/Control Architecture for a Formation of Multi-Vehicle System in Dynamic Environment
+        <br>
+        Compiègne, 10-01-2024
+        </p>
+        </div>
+   
+        <div class="footer_images">
+        <div class="row">
+        <img data-src="images/Logo_Heudiasyc.png" height="30">   
+        <img data-src="images/utc.png"  height="30">
+        <img data-src="images/CNRS.png" height="30">
+        </div>
+        </div>
+    </div>  
+</section> 
+
+
+
+<section data-visibility="uncounted">
+    <h4  style="text-align: left;"> Online reconfiguration gains identification</h4>
+    <p class="fragment fade-in-then-semi-out" data-fragment-index="1" style="text-align: left; font-size: 1.5ch;">3- Take into account the initial pose </p> 
+
+    <p class="fragment fade-in-then-semi-out" data-fragment-index="1" style="text-align: left; font-size: 1.5ch;">Velocity profile generator model: </p> 
+    <p class="fragment fade-in-then-semi-out" data-fragment-index="1" style="text-align: center; font-size: 1.5ch;">$  \begin{equation}
+         \mathcal{V}(t) = \color{limegreen}{K_1} e^{\color{orange}{a} t} + \color{limegreen}{K_2} e^{\color{orange}{-\lambda} t} + c  
+        \end{equation}$ 
+    </p>
+    <p class="fragment fade-in-then-semi-out " data-fragment-index="1" style="text-align: left; font-size: 1.5ch;">  with $c= \mathcal{V}^{init}-\color{limegreen}{K_1}-\color{limegreen}{K_2}$ </p> 
+    
+
+
+
+    
+    <p class="fragment fade-in-then-semi-out " data-fragment-index="2" style="text-align: left; font-size: 1.5ch;">The position $P(t)$:  </p> 
+    <p  class="fragment " data-fragment-index="2" data-fragment-index="3" style="text-align: center; font-size: 1.5ch;">  $\begin{equation} 
+        \boxed{ P(t)= \frac{\color{limegreen}{K_1}}{\color{orange}{a}} e^{\color{orange}{a} t } - \frac{\color{limegreen}{K_2}}{\color{orange}{\lambda}} e^{\color{orange}{-\lambda} t }   + (\mathcal{V}^{init}- \color{limegreen}{K_1} - \color{limegreen}{K_2} )t +\color{red}{d}}
+        \end{equation}$ 
+    </p>
+    <p class="fragment fade-in-then-semi-out " data-fragment-index="2" style="text-align: left; font-size: 1.5ch;">  with $\color{red}{d}=P_0 - \frac{\color{limegreen}{K_1}}{\color{orange}{a}} + \frac{\color{limegreen}{K_2}}{\color{orange}{\lambda}}$ and $P_0$ is the initial pose of the vehicle</p> 
+    <p class="fragment fade-in-then-out " data-fragment-index="3"></p>
+
+    <div>
+        <div class="footer" style="text-align: left;">
+         <p>
+         Safe and Energy Efficient Decision/Control Architecture for a Formation of Multi-Vehicle System in Dynamic Environment
+        <br>
+        Compiègne, 10-01-2024
+        </p>
+        </div>
+   
+        <div class="footer_images">
+        <div class="row">
+        <img data-src="images/Logo_Heudiasyc.png" height="30">   
+        <img data-src="images/utc.png"  height="30">
+        <img data-src="images/CNRS.png" height="30">
+        </div>
+        </div>
+    </div>  
+</section> 
+
+
+<section data-visibility="uncounted">
+    <h4  style="text-align: left;"> Online reconfiguration gains identification</h4>
+
+
+
+
+
+ <p class="fragment fade-in-then-semi-out" data-fragment-index="1" style="text-align: left; font-size: 1.5ch;">4- Take into account the initial & final coordinates </p> 
+ <p class="fragment fade-in-then-semi-out " data-fragment-index="1" style="text-align: left; font-size: 1.5ch;"> $M(t)$ is the vehicle's coordinate part of formation   </p> 
+
+ 
+ <p class="fragment " data-fragment-index="1" data-fragment-index="2" style="text-align: center; font-size: 1.5ch;"> $
+
+    \begin{align}
+    \boxed{ (\mathcal{V}_{ref} t_f + P_{ref_0})  - \big[\frac{\color{limegreen}{K_1}}{\color{orange}{a}}e^{\color{orange}{a}t_f} - \frac{\color{limegreen}{K_2}}{\color{orange}{a}}e^{-\color{orange}{\lambda} t_f} + \\ (\mathcal{V}_{init} - \color{limegreen}{K_1} - \color{limegreen}{K_2})t_f  + P_0  - \frac{\color{limegreen}{K_1}}{\color{orange}{a}} + \frac{\color{limegreen}{K_2}}{\color{orange}{\lambda}} \big] -M_f =0
+     }\end{align}
+$</p> 
+
+<p class="fragment fade-in-then-semi-out " data-fragment-index="1,2" style="text-align: left; font-size: 1.5ch;"> with $\begin{cases} 
+    M_f= M(t_f), \; \text{the desired formation coordinate}\\
+    \mathcal{V}_{ref}, P_{ref_0}, \; \text{the velocity and initial pose of } V_R \\
+    t_f, \; \text{the reconfiguration duration}
+    
+    \end{cases}$    </p> 
+    <p class="fragment fade-in-then-out " data-fragment-index="3"></p>
+    <div>
+        <div class="footer" style="text-align: left;">
+         <p>
+         Safe and Energy Efficient Decision/Control Architecture for a Formation of Multi-Vehicle System in Dynamic Environment
+        <br>
+        Compiègne, 10-01-2024
+        </p>
+        </div>
+   
+        <div class="footer_images">
+        <div class="row">
+        <img data-src="images/Logo_Heudiasyc.png" height="30">   
+        <img data-src="images/utc.png"  height="30">
+        <img data-src="images/CNRS.png" height="30">
+        </div>
+        </div>
+    </div>  
+ </section> 
+
+
+ <section data-visibility="uncounted" style="text-align: left;">
+    <h3>Simulation protocol</h3>
+
+<p>Scenario variables</p>
+
+<ul style="font-size: 0.3in;">
+<li>
+    Initial pose of the vehicles
+</li>
+
+<li>
+    Initial velocity of the vehicles
+</li>
+
+<li>
+    Length of the merging zone
+</li>
+
+<li>
+    Initial formation
+</li>
+
+<li>
+    Desired formation
+</li>
+
+
+
+
+
+</ul>
+    
+<p>Scenario selection</p>
+<ul style="font-size: 0.3in;">
+<li>Formation reconfiguration ability</li>
+<li>Vehicle's behavior</li>
+
+</ul>
+
+ </section>
+
+
+
+
+ <section data-visibility="uncounted" style="text-align: left;">
+<h4> Stability analysis w.r.t. the convergence errors</h4> 
+
+<p style="font-size: 0.3in;"> Step 1: stability of the state $S$</p>
+
+
+<p style="text-align: center;font-size: 0.3in">$\begin{equation} 
+    V= \frac{1}{2}S^{T}S
+\end{equation}$</p>
+
+<p style="text-align: center;font-size: 0.3in">$\begin{equation}
+    \dot{V}= \dot{S}^{T}S = S^{T}A^{T}S
+\end{equation}$</p>
+
+<p style="font-size: 0.3in;"> with $A$ negative definite</p>
+
+
+<p style="font-size: 0.3in;"> Step 2: stability of the convergence error $e$</p>
+<p style="font-size: 0.3in;text-align: center"> $
+    
+    \begin{equation} 
+    S=\dot{S}=0
+\end{equation}
+    $</p>
+
+
+
+    <p style="font-size: 0.3in;text-align: center" >$
+        \begin{eqnarray}
+    &&{E}_{h_{i}} p^2+ \lambda_{h_{i}}E_{h_{i}}p +\gamma_{h_{i}} E_{h_{i}} = 0\\
+   &&{E}_{l_{i}} p^2+ \lambda_{l_{i}}E_{l_{i}} p +\gamma_{l_{i}} E_{l_{i}} = 0\\ 
+   \end{eqnarray}
+        $</p>
+
+        <p style="font-size: 0.3in;"> Appliation of the Hurwitz criterion</p>
+
+
+
+
+
+
+</section>
+
+
+
+
+
+
+
+
+ <section data-visibility="uncounted">
+    <h3>Co-Simulation with Unreal-engine</h3>
+    <br>
+    <img data-src="images/Slide_sup1.png" height="450" class="center">   
+
+ </section>
+
+ <section data-visibility="uncounted">
+    <h3>Co-Simulation with SCANeR Studio</h3>
+    <br>
+    <img data-src="images/Slide_sup2.png" height="450" class="center">   
+
+ </section>
+
+ <section data-visibility="uncounted" style="text-align: left;">
+    <h3>The non-linear optimization algorithm</h3>
+    <br>
+    <img data-src="images/ALG.png" height="450" class="center">   
+</section>
+
+
+<section data-visibility="uncounted" >
+    <h3>CORM summary results</h3>
+    <br>
+    <img data-src="images/CORM_summary_2.png" height="500" class="center">   
+</section>
+
+
+<section data-visibility="uncounted" style="text-align: left;">
+    <h3>CORM summary results</h3>
+    <br>
+    <img data-src="images/CORM_summary.png" height="250" class="center">   
+</section>
+
+
+
+
+            </section>
+          
+            </div>
+        </div>
+	<script src="dist/reveal.js"></script>
+	<script src="plugin/notes/notes.js"></script>
+	<script src="plugin/search/search.js"></script>
+	<script src="plugin/highlight/highlight.js"></script>
+	<script src="plugin/math/math.js"></script>
+	<script src="plugin/zoom/zoom.js"></script>
+	<script async defer src="https://buttons.github.io/buttons.js"></script>
+    <script type="text/javascript" src="dist/reveal.js"></script>
+    <script src="plugin/simplemenu/simplemenu.js"></script>
+
+	<script>
+		// More info about initialization & config:
+		// - https://revealjs.com/initialization/
+		// - https://revealjs.com/config/
+
+        Reveal.initialize({
+  // The "normal" size of the presentation, aspect ratio will
+  // be preserved when the presentation is scaled to fit different
+  // resolutions. Can be specified using percentage units.
+  width: 1280,
+  height: 720,
+
+  // Factor of the display size that should remain empty around
+  // the content
+  margin: 0.06,
+
+  // Bounds for smallest/largest possible scale to apply to content
+  minScale: 0.2,
+  maxScale: 2.0
+});
+
+		Reveal.initialize({
+            simplemenu: {
+                inherit: "current",
+                barhtml: {
+                    header: "<div class='menubar'><ul class='menu'></ul></div>",
+                    footer:""
+                }
+            },
+         
+			hash: true,
+			slideNumber: 'c/t',
+			math: {
+				mathjax: 'https://cdn.jsdelivr.net/gh/mathjax/mathjax@2.7.8/MathJax.js',
+				config: 'TeX-AMS_HTML-full',
+		      // pass other options into `MathJax.Hub.Config()`
+		      TeX: { Macros: {
+		      	Real: "{\\mathbb{R}}",
+		      	cC: "{\\mathcal{C}}",
+		      	expectedvalue: "\\mathop{\\mathbb{E}}",
+		      }}
+		  },
+          
+			// Learn about plugins: https://revealjs.com/plugins/
+			plugins: [ RevealSearch, RevealHighlight, RevealNotes, RevealMath, RevealZoom,Simplemenu]
+            
+		});
+
+        Reveal.initialize({
+  katex: {
+    version: 'latest',
+    delimiters: [
+      {left: '$$', right: '$$', display: true},
+      {left: '$', right: '$', display: false},
+      {left: '\\(', right: '\\)', display: false},
+      {left: '\\[', right: '\\]', display: true}
+   ],
+   ignoredTags: ['script', 'noscript', 'style', 'textarea', 'pre']
+ },
+ plugins: [ RevealMath.KaTeX ]
+});
+
+
+      
+       
+	</script>
+        
+</body>
+</html>

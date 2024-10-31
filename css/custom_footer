@@ -1,0 +1,28 @@
+/*-- scss:defaults --*/
+
+.reveal .footer {
+    color: #ffffff !important;
+    display: inline-block ;
+     width: 100px;
+     height: 100px;
+     padding: 5px;
+     border: 1px solid blue;
+     background-color: yellow; 
+   }
+
+   html {
+    position: relative;
+    min-height: 100%;
+  }
+  body {
+    /* Margin bottom by footer height */
+    margin-bottom: 100px;
+  }
+  .footer {
+    position: absolute;
+    bottom: -10px;
+    width: 100%;
+    /* Set the fixed height of the footer here */
+    height: 60px;
+    background-color: #f5f5f5;
+  }
